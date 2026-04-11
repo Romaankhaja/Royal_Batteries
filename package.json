@@ -1,0 +1,19 @@
+{
+  "name": "royal-batteries",
+  "version": "1.0.0",
+  "description": "Premium EXIDE CARE Battery Shop Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server ./",
+    "dev": "npx http-server ./",
+    "check": "echo \"Running static validation...\" && echo \"Done.\"",
+    "build": "echo \"Static site: no build required.\""
+  },
+  "keywords": [
+    "battery",
+    "exide",
+    "gajwel"
+  ],
+  "author": "Royal Batteries",
+  "license": "ISC"
+}

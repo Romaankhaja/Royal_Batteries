@@ -1,0 +1,21 @@
+{
+  "name": "Royal Batteries Gajwel",
+  "short_name": "Royal Batteries",
+  "description": "Fast battery replacement and trusted after-sales support in Gajwel.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D1118",
+  "theme_color": "#0D1118",
+  "icons": [
+    {
+      "src": "assets/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

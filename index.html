@@ -1,0 +1,1093 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0D1118">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<title>Best Battery Shop in Gajwel, Siddipet & Medak | Royal Batteries EXIDE CARE</title>
+<meta name="description" content="Royal Batteries in Gajwel is a premium EXIDE CARE showroom for car, bike, inverter, and commercial batteries across Gajwel, Siddipet, Medak, and nearby areas.">
+<meta name="keywords" content="best battery shop in gajwel, best battery shop in medak, best battery shop in siddipet, battery dealer Gajwel, car battery replacement Siddipet, inverter battery Medak, Exide Care dealer">
+<link rel="canonical" href="https://royalbatteries.netlify.app/">
+<meta property="og:title" content="Best Battery Shop in Gajwel, Siddipet & Medak | Royal Batteries EXIDE CARE">
+<meta property="og:description" content="Expert EXIDE CARE battery solutions in Gajwel, serving Siddipet, Medak, and 50+ km radius.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://royalbatteries.netlify.app/">
+<meta property="og:image" content="https://royalbatteries.netlify.app/assets/images/showroom_interior.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Royal Batteries Gajwel | Trusted Battery Dealer">
+<meta name="twitter:description" content="Fast battery replacement, genuine brands, and long-term service support in Gajwel.">
+<meta name="twitter:image" content="https://royalbatteries.netlify.app/assets/images/showroom_interior.png">
+<link rel="icon" type="image/png" href="assets/favicon-32x32.png">
+<link rel="apple-touch-icon" href="assets/icon-192x192.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/images/showroom_interior.png" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,500,1,0" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Royal Batteries","description":"Battery dealer in Gajwel offering Exide, Amaron, inverter batteries, installation, and warranty support.","telephone":"+91 9397617823","founder":{"@type":"Person","name":"Khaja Mujahiduddin"},"address":{"@type":"PostalAddress","streetAddress":"Opposite Munsif Court","addressLocality":"Gajwel","addressRegion":"Telangana","addressCountry":"IN"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"06:00","closes":"21:00"}],"areaServed":["Gajwel","Siddipet","Medak"],"brand":["Exide","Amaron","Powerzone"]}</script>
+</head>
+<body data-theme="royal-dark">
+
+<!-- ========== CURSOR ========== -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- ========== LOADER ========== -->
+<div class="page-loader" id="pageLoader">
+  <div class="loader-inner">
+    <div class="loader-logo"><img src="assets/logo.png" alt="Royal Batteries" class="logo-img-loader"></div>
+    <div class="loader-bar"><div class="loader-progress" id="loaderProgress"></div></div>
+    <div class="loader-text">Powering your experience...</div>
+  </div>
+</div>
+
+<!-- ========== ENERGY BACKGROUND ========== -->
+<div class="energy-grid-wrap"><canvas id="energyCanvas"></canvas></div>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <img src="assets/logo.png" alt="Royal Batteries" class="logo-img-nav">
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#services" class="nav-link" data-i18n="n1">Services</a>
+      <a href="#finder" class="nav-link" data-i18n="n2">Find Battery</a>
+      <a href="#products" class="nav-link" data-i18n="n3">Products</a>
+      <a href="#cca" class="nav-link">CCA Guide</a>
+      <a href="#expert" class="nav-link" data-i18n="n4">About Us</a>
+      <a href="#contact" class="nav-link" data-i18n="n5">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="lang-pill">
+        <button class="lang-opt active" data-lang="en" onclick="setLang('en',this)">EN</button>
+        <button class="lang-opt" data-lang="te" onclick="setLang('te',this)">తె</button>
+        <button class="lang-opt" data-lang="hi" onclick="setLang('hi',this)">हि</button>
+      </div>
+      <div class="theme-switcher">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Change theme" aria-expanded="false">
+          <span class="material-symbols-rounded">palette</span>
+          <span>Theme</span>
+        </button>
+        <div class="theme-menu" id="themeMenu">
+          <button type="button" class="theme-opt active" data-theme="royal-dark">Royal Dark</button>
+          <button type="button" class="theme-opt" data-theme="royal-light">Royal Light</button>
+          <button type="button" class="theme-opt" data-theme="power-grid">Power Grid</button>
+        </div>
+      </div>
+      <div class="magnetic-wrap">
+        <a href="tel:+919397617823" class="nav-cta" data-i18n="callNow">Call Now</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-controls="mobileMenu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ========== MOBILE MENU ========== -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mm-links">
+    <a href="#services" class="mm-link" data-i18n="n1">Services</a>
+    <a href="#finder" class="mm-link" data-i18n="n2">Find Battery</a>
+    <a href="#products" class="mm-link" data-i18n="n3">Products</a>
+    <a href="#cca" class="mm-link">CCA Guide</a>
+    <a href="#expert" class="mm-link" data-i18n="n4">About Us</a>
+    <a href="#contact" class="mm-link" data-i18n="n5">Contact</a>
+  </div>
+  <div class="mm-ctas">
+    <a href="tel:+919397617823" class="mm-btn primary">
+      <span class="material-symbols-rounded" aria-hidden="true">call</span>
+      <span data-i18n="callNow">Call Now</span>
+    </a>
+    <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20battery%20support." class="mm-btn whatsapp" target="_blank" rel="noopener">
+      <span class="material-symbols-rounded" aria-hidden="true">forum</span>
+      <span data-i18n="whatsappNow">WhatsApp</span>
+    </a>
+  </div>
+</div>
+
+<!-- ========== HERO ========== -->
+<main id="home">
+<section class="hero">
+  <div class="hero-bg">
+    <img src="assets/images/showroom_interior.png" alt="Royal Batteries Premium EXIDE CARE Showroom" class="hero-bg-img" width="1920" height="1080" fetchpriority="high" decoding="async">
+    <div class="hero-overlay"></div>
+    <div class="hero-grid-lines"></div>
+  </div>
+
+  <div class="hero-container">
+    <div class="hero-content">
+
+      <div class="hero-badge reveal" data-delay="0">
+        <div class="badge-pulse" id="statusDot"></div>
+        <span id="statusText" data-i18n="open" aria-live="polite">Open Now - Batteries available today</span>
+      </div>
+
+      <h1 class="hero-title reveal" data-delay="1">
+        <span class="title-line" data-i18n-html="h1line1">Power Your Journey</span>
+        <span class="title-line accent" data-i18n-html="h1line2">with <em>Royal Batteries</em></span>
+        <span class="title-line muted" data-i18n-html="h1line3">Premium EXIDE CARE Showroom</span>
+      </h1>
+
+      <p class="hero-sub reveal" data-delay="2" data-i18n="heroSub">Royal Batteries is a premium EXIDE CARE showroom in Gajwel for car, bike, inverter, and commercial batteries, with fitment, testing, and warranty support across a 50+ km radius.</p>
+
+      <div class="hero-actions reveal" data-delay="3">
+        <div class="magnetic-wrap">
+          <a href="tel:+919397617823" class="hbtn hbtn-primary">
+            <span class="hbtn-icon material-symbols-rounded" aria-hidden="true">call</span>
+            <span data-i18n="callNow">Call Now</span>
+            <span class="hbtn-sub">9397617823</span>
+          </a>
+        </div>
+        <div class="magnetic-wrap">
+          <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20battery%20support." class="hbtn hbtn-whatsapp" target="_blank" rel="noopener">
+            <span class="hbtn-icon material-symbols-rounded" aria-hidden="true">forum</span>
+            <span data-i18n="whatsappNow">WhatsApp</span>
+            <span class="hbtn-sub" data-i18n="instantReply">Instant Reply</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-trust reveal" data-delay="4">
+        <div class="trust-item">
+          <span class="trust-num" data-count="25">0+</span>
+          <span class="trust-label" data-i18n="yearsExp">Years Experience</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <span class="trust-num" data-count="50">0+</span>
+          <span class="trust-label" style="text-transform:uppercase;">KM Radius Served</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <span class="trust-num" style="display:flex; align-items:center; gap:4px; font-size:1.4rem; color:var(--red);">EXIDE</span>
+          <span class="trust-label" data-i18n="topBrands">Authorized Dealer</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-visual reveal" data-delay="2">
+      <div class="hero-visual-stack" id="heroVisualStack">
+        <article class="showcase-card showcase-main glow-card">
+          <img src="assets/images/expert_at_work.png" alt="Royal Batteries Exide Care showroom interior with expert team and red battery displays" class="showcase-photo" id="heroVisualPhoto" width="692" height="1024" loading="eager" decoding="async">
+          <div class="showcase-copy">
+            <span class="showcase-chip">Royal Batteries Floor</span>
+            <strong>Red themed Exide showroom with expert counter support</strong>
+            <p>Authentic branding, organized display walls, and one-to-one guidance for faster battery selection.</p>
+          </div>
+        </article>
+        <article class="showcase-card showcase-side glow-card">
+          <img src="assets/images/service_bay.png" alt="Red service bay with stocked battery shelves and testing station" class="showcase-photo" width="768" height="768" loading="lazy" decoding="async">
+          <div class="showcase-copy compact">
+            <span class="showcase-chip">Diagnostics Bay</span>
+            <strong>Fast testing before fitment</strong>
+          </div>
+        </article>
+        <div class="float-tag tag-1">
+          <div class="ft-icon"><span class="material-symbols-rounded" aria-hidden="true">battery_charging_full</span></div>
+          <div class="ft-info">
+            <div class="ft-title" data-i18n="fastCheck">Fast Health Check</div>
+            <div class="ft-sub">Voltage, CCA, alternator</div>
+          </div>
+        </div>
+        <div class="float-tag tag-2">
+          <div class="ft-icon"><span class="material-symbols-rounded" aria-hidden="true">workspace_premium</span></div>
+          <div class="ft-info">
+            <div class="ft-title">Authorized Exide Care</div>
+            <div class="ft-sub" data-i18n="allBrands">All brands</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    <span data-i18n="scrollExplore">Scroll to explore</span>
+  </div>
+</section>
+
+<!-- ========== MARQUEE ========== -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="m-item"><span class="m-dot"></span> EXIDE CARE</div>
+    <div class="m-item"><span class="m-dot"></span> AMARON</div>
+    <div class="m-item"><span class="m-dot"></span> POWERZONE</div>
+    <div class="m-item"><span class="m-dot"></span> ROYAL BATTERIES</div>
+    <div class="m-item"><span class="m-dot"></span> BEST BATTERY SHOP IN GAJWEL</div>
+    <div class="m-item"><span class="m-dot"></span> BEST BATTERY SHOP IN SIDDIPET</div>
+    <div class="m-item"><span class="m-dot"></span> BEST BATTERY SHOP IN MEDAK</div>
+    <div class="m-item"><span class="m-dot"></span> EXIDE CARE</div>
+    <div class="m-item"><span class="m-dot"></span> AMARON</div>
+    <div class="m-item"><span class="m-dot"></span> POWERZONE</div>
+    <div class="m-item"><span class="m-dot"></span> ROYAL BATTERIES</div>
+    <div class="m-item"><span class="m-dot"></span> BEST BATTERY SHOP IN GAJWEL</div>
+    <div class="m-item"><span class="m-dot"></span> BEST BATTERY SHOP IN SIDDIPET</div>
+    <div class="m-item"><span class="m-dot"></span> BEST BATTERY SHOP IN MEDAK</div>
+  </div>
+</div>
+
+<!-- ========== LIVE POWER PULSE ========== -->
+<section id="live-power" class="live-power-section section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag">Live Meter</div>
+      <h2 class="section-title">Real-Time Power <em>Confidence</em></h2>
+      <p class="section-sub">An interactive live-style preview that helps customers instantly trust battery health checks and CCA matching.</p>
+    </div>
+
+    <div class="live-power-grid">
+      <article class="live-core reveal-left">
+        <div class="live-ring-wrap">
+          <svg class="live-ring" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="ring-track" cx="100" cy="100" r="84"></circle>
+            <circle class="ring-fill" id="ringFill" cx="100" cy="100" r="84"></circle>
+          </svg>
+          <div class="live-ring-center">
+            <span id="readinessValue">97%</span>
+            <small>Readiness</small>
+          </div>
+        </div>
+        <p class="live-core-sub">Updated every few seconds to simulate live diagnostic behavior.</p>
+      </article>
+
+      <article class="live-metrics reveal-right">
+        <div class="metric-row">
+          <div class="metric-head">
+            <span>CCA Strength</span>
+            <strong id="ccaLiveValue">620 A</strong>
+          </div>
+          <div class="metric-track"><span id="ccaLiveBar"></span></div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-head">
+            <span>Charge Hold</span>
+            <strong id="chargeLiveValue">88%</strong>
+          </div>
+          <div class="metric-track"><span id="chargeLiveBar"></span></div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-head">
+            <span>Alternator Sync</span>
+            <strong id="altLiveValue">14.1 V</strong>
+          </div>
+          <div class="metric-track"><span id="altLiveBar"></span></div>
+        </div>
+        <canvas id="powerWave" width="640" height="150" aria-label="Live power wave animation"></canvas>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section id="services" class="section services-section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag" data-i18n="svcTag">What We Do</div>
+      <h2 class="section-title">Battery Solutions Built Around <em>You</em></h2>
+      <p class="section-sub" data-i18n="svcSub">Every service is backed by 25+ years of expertise and a genuine commitment to your safety. We proudly serve a massive 50+ KM radius!</p>
+    </div>
+
+    <div class="services-bento">
+      <article class="svc-card big reveal-up glow-card" data-delay="0">
+        <div class="svc-icon-wrap"><span class="material-symbols-rounded" aria-hidden="true">directions_car</span></div>
+        <div class="svc-content">
+          <h3 data-i18n="svc1t">Car Battery Replacement</h3>
+          <p data-i18n="svc1d">Correct fitment, safe installation & responsible disposal of old batteries. Serving all vehicle types.</p>
+          <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20car%20battery%20replacement." class="svc-link" target="_blank" rel="noopener" data-i18n="enquireNow">Enquire Now</a>
+        </div>
+        <div class="svc-bg-num">01</div>
+      </article>
+
+      <article class="svc-card reveal-up glow-card" data-delay="1">
+        <div class="svc-icon-wrap"><span class="material-symbols-rounded" aria-hidden="true">two_wheeler</span></div>
+        <div class="svc-content">
+          <h3 data-i18n="svc2t">Bike Battery</h3>
+          <p data-i18n="svc2d">Two-wheeler batteries tested before delivery. Scooters & motorcycles covered.</p>
+          <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20bike%20battery." class="svc-link" target="_blank" rel="noopener" data-i18n="enquireNow">Enquire Now</a>
+        </div>
+        <div class="svc-bg-num">02</div>
+      </article>
+
+      <article class="svc-card reveal-up glow-card" data-delay="2">
+        <div class="svc-icon-wrap"><span class="material-symbols-rounded" aria-hidden="true">home</span></div>
+        <div class="svc-content">
+          <h3 data-i18n="svc3t">Inverter Batteries</h3>
+          <p data-i18n="svc3d">Long backup options for homes, clinics, shops & offices. Tubular & flat plate types.</p>
+          <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20inverter%20battery." class="svc-link" target="_blank" rel="noopener" data-i18n="enquireNow">Enquire Now</a>
+        </div>
+        <div class="svc-bg-num">03</div>
+      </article>
+
+      <article class="svc-card tall reveal-up glow-card" data-delay="3">
+        <div class="svc-icon-wrap"><span class="material-symbols-rounded" aria-hidden="true">battery_charging_full</span></div>
+        <div class="svc-content">
+          <h3 data-i18n="svc4t">Testing & Diagnostics</h3>
+          <p data-i18n="svc4d">Advanced voltage, CCA & charging-health diagnostics. Know your battery's real health before it fails.</p>
+          <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20battery%20testing." class="svc-link" target="_blank" rel="noopener" data-i18n="enquireNow">Enquire Now</a>
+        </div>
+        <div class="svc-bg-num">04</div>
+      </article>
+
+      <article class="svc-card reveal-up glow-card" data-delay="4">
+        <div class="svc-icon-wrap"><span class="material-symbols-rounded" aria-hidden="true">local_shipping</span></div>
+        <div class="svc-content">
+          <h3 data-i18n="svc5t">Commercial Vehicles</h3>
+          <p data-i18n="svc5d">Tractors, trucks & HCVs. Heavy-duty options from Exide & Amaron for commercial fleets.</p>
+          <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20commercial%20battery." class="svc-link" target="_blank" rel="noopener" data-i18n="enquireNow">Enquire Now</a>
+        </div>
+        <div class="svc-bg-num">05</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHY US ========== -->
+<section class="why-section">
+  <div class="why-glow"></div>
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-left reveal-left">
+        <div class="section-tag" data-i18n="whyTag">Why Choose Us</div>
+        <h2 class="section-title light">Trusted by Thousands in <em>Telangana</em></h2>
+        <p class="section-sub light" data-i18n="whySub">We do not just sell batteries. We match the right battery, explain the choice clearly, and support you after the sale.</p>
+        <a href="tel:+919397617823" class="pill-btn" data-i18n="talkToExpert">Talk to Expert</a>
+      </div>
+
+      <div class="why-right">
+        <div class="why-card reveal-up glow-card" data-delay="0">
+          <div class="wc-icon"><span class="material-symbols-rounded" aria-hidden="true">science</span></div>
+          <div>
+            <h3 data-i18n="why1t">Technical Expertise</h3>
+            <p data-i18n="why1d">Khaja Mujahiduddin brings 20+ years of hands-on battery knowledge to every interaction.</p>
+          </div>
+        </div>
+        <div class="why-card reveal-up glow-card" data-delay="1">
+          <div class="wc-icon"><span class="material-symbols-rounded" aria-hidden="true">sell</span></div>
+          <div>
+            <h3 data-i18n="why2t">Transparent Pricing</h3>
+            <p data-i18n="why2d">No hidden charges. You see what you pay. Honest quotes every time.</p>
+          </div>
+        </div>
+        <div class="why-card reveal-up glow-card" data-delay="2">
+          <div class="wc-icon"><span class="material-symbols-rounded" aria-hidden="true">bolt</span></div>
+          <div>
+            <h3 data-i18n="why3t">Same-Day Service</h3>
+            <p data-i18n="why3d">Walk in or call ahead — most battery replacements done within the hour.</p>
+          </div>
+        </div>
+        <div class="why-card reveal-up glow-card" data-delay="3">
+          <div class="wc-icon"><span class="material-symbols-rounded" aria-hidden="true">fact_check</span></div>
+          <div>
+            <h3 data-i18n="why4t">Warranty Support</h3>
+            <p data-i18n="why4d">Full after-sales warranty claim handling for every brand we sell.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RELATIONSHIP VALUE ========== -->
+<section id="relationship" class="relationship-section section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag" data-i18n="relTag">Why Customers Return</div>
+      <h2 class="section-title">We Build Value Through <em>Service Relationships</em></h2>
+      <p class="section-sub" data-i18n="relSub">From first call to after-sales support, we focus on fast turnaround, honest guidance, and long-term battery care that brings customers back.</p>
+    </div>
+
+    <div class="relationship-grid">
+      <article class="relationship-card glow-card reveal-up">
+        <h3 data-i18n="rel1Title">Faster Service, Less Downtime</h3>
+        <p data-i18n="rel1Desc">Most replacements and fitment checks are completed within the hour, so your day keeps moving without unnecessary delays.</p>
+      </article>
+      <article class="relationship-card glow-card reveal-up" data-delay="1">
+        <h3 data-i18n="rel2Title">Advisory, Not Pushy Selling</h3>
+        <p data-i18n="rel2Desc">We recommend what fits your usage and budget, explain trade-offs clearly, and help you choose confidently.</p>
+      </article>
+      <article class="relationship-card glow-card reveal-up" data-delay="2">
+        <h3 data-i18n="rel3Title">After-Sales That Builds Trust</h3>
+        <p data-i18n="rel3Desc">Warranty support, preventive reminders, and practical care tips help customers avoid repeat breakdown stress.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SHOWROOM GALLERY ========== -->
+<section id="showroom" class="showroom-section section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag">Showroom View</div>
+      <h2 class="section-title">See the <em>Royal Batteries Experience</em></h2>
+      <p class="section-sub">A stronger visual story from the counter to the service bay, built around red Exide branding, stocked shelves, and expert guidance.</p>
+    </div>
+
+    <div class="showroom-grid">
+      <figure class="showroom-card wide reveal-up glow-card">
+        <img src="assets/images/showroom_interior.png" alt="Royal Batteries red Exide Care showroom with illuminated branding and battery displays" width="768" height="768" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Premium Exide showroom</strong>
+          <span>Red-branded retail atmosphere with clear product display and walk-in consultation.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="showroom-card tall reveal-up glow-card" data-delay="1">
+        <img src="assets/images/expert_at_work.png" alt="Royal Batteries expert standing inside the red Exide showroom with stocked shelves" width="692" height="1024" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Trusted local expertise</strong>
+          <span>Counter guidance, product matching, and warranty help from a real specialist.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="showroom-card reveal-up glow-card" data-delay="2">
+        <img src="assets/images/service_bay.png" alt="Royal Batteries style diagnostic bay with red lighting and organized battery inventory" width="768" height="768" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Diagnostic-ready service bay</strong>
+          <span>Visual proof of a faster, cleaner, more premium service setup.</span>
+        </figcaption>
+      </figure>
+
+      <article class="showroom-note reveal-up glow-card" data-delay="3">
+        <div class="section-tag light">What Improves Trust</div>
+        <h3>Stronger visuals make the website feel closer to the real showroom.</h3>
+        <div class="showroom-points">
+          <div class="showroom-point">
+            <span class="material-symbols-rounded" aria-hidden="true">check_circle</span>
+            <span>Red Exide-focused imagery now supports the brand story more clearly.</span>
+          </div>
+          <div class="showroom-point">
+            <span class="material-symbols-rounded" aria-hidden="true">check_circle</span>
+            <span>Store, expert, and service-bay views create more confidence than generic battery art.</span>
+          </div>
+          <div class="showroom-point">
+            <span class="material-symbols-rounded" aria-hidden="true">check_circle</span>
+            <span>The image mix now feels more premium, more local, and more conversion-focused.</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BATTERY FINDER ========== -->
+<section id="finder" class="finder-section section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag" data-i18n="finderTag">Battery Finder</div>
+      <h2 class="section-title">What Are You Powering <em>Today?</em></h2>
+      <p class="section-sub" data-i18n="finderSub">Tap a category and get an instant WhatsApp quote from our experts.</p>
+    </div>
+
+    <div class="finder-grid">
+      <a class="finder-card reveal-up glow-card" data-delay="0" href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20a%20car%20battery%20for%20my%20vehicle%20model%3A" target="_blank" rel="noopener" aria-label="Get a car battery quote on WhatsApp">
+        <div class="fc-media">
+          <div class="fc-emoji"><span class="material-symbols-rounded" aria-hidden="true">directions_car</span></div>
+          <div class="fc-glow"></div>
+        </div>
+        <div class="fc-body">
+          <h3 data-i18n="fnd1t">Car</h3>
+          <p data-i18n="fnd1d">Sedan, hatchback, SUV and premium cars with petrol or diesel engines.</p>
+          <div class="fc-btn" data-i18n="getQuote">Get WhatsApp Quote</div>
+        </div>
+      </a>
+
+      <a class="finder-card reveal-up glow-card" data-delay="1" href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20a%20bike%20battery%20for%3A" target="_blank" rel="noopener" aria-label="Get a bike battery quote on WhatsApp">
+        <div class="fc-media">
+          <div class="fc-emoji"><span class="material-symbols-rounded" aria-hidden="true">two_wheeler</span></div>
+          <div class="fc-glow"></div>
+        </div>
+        <div class="fc-body">
+          <h3 data-i18n="fnd2t">Bike / Scooter</h3>
+          <p data-i18n="fnd2d">Motorcycles & scooters with quick-fit support</p>
+          <div class="fc-btn" data-i18n="getQuote">Get WhatsApp Quote</div>
+        </div>
+      </a>
+
+      <a class="finder-card reveal-up glow-card" data-delay="2" href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20an%20inverter%20battery%20for%3A" target="_blank" rel="noopener" aria-label="Get an inverter battery quote on WhatsApp">
+        <div class="fc-media">
+          <div class="fc-emoji"><span class="material-symbols-rounded" aria-hidden="true">home</span></div>
+          <div class="fc-glow"></div>
+        </div>
+        <div class="fc-body">
+          <h3 data-i18n="fnd3t">Inverter / Home</h3>
+          <p data-i18n="fnd3d">Tubular & backup batteries for homes & shops</p>
+          <div class="fc-btn" data-i18n="getQuote">Get WhatsApp Quote</div>
+        </div>
+      </a>
+
+      <a class="finder-card reveal-up glow-card" data-delay="3" href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20a%20commercial%20or%20tractor%20battery%20for%3A" target="_blank" rel="noopener" aria-label="Get a commercial battery quote on WhatsApp">
+        <div class="fc-media">
+          <div class="fc-emoji"><span class="material-symbols-rounded" aria-hidden="true">local_shipping</span></div>
+          <div class="fc-glow"></div>
+        </div>
+        <div class="fc-body">
+          <h3 data-i18n="fnd4t">Commercial</h3>
+          <p data-i18n="fnd4d">Tractors, trucks & utility vehicles</p>
+          <div class="fc-btn" data-i18n="getQuote">Get WhatsApp Quote</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRODUCTS ========== -->
+<section id="products" class="products-section section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag" data-i18n="prodTag">Our Stock</div>
+      <h2 class="section-title">Popular Battery <em>Models</em></h2>
+      <p class="section-sub" data-i18n="prodSub">Browse our most popular models. Contact us for current stock & pricing.</p>
+    </div>
+
+    <div class="product-tabs reveal-up">
+      <button class="ptab active" id="ptab-car" onclick="switchTab('car',this)" data-i18n="tabCar">Car</button>
+      <button class="ptab" id="ptab-bike" onclick="switchTab('bike',this)" data-i18n="tabBike">Bike</button>
+      <button class="ptab" id="ptab-inverter" onclick="switchTab('inverter',this)" data-i18n="tabInverter">Inverter</button>
+    </div>
+
+    <div class="product-panels">
+      <!-- CAR tab -->
+      <div class="ppanel active" id="panel-car">
+        <div class="prod-grid">
+          <div class="prod-card reveal-up glow-card" data-delay="0">
+            <div class="prod-brand exide">Exide</div>
+            <h3>Mileage 45AH (FML8-ML35R)</h3>
+            <div class="prod-tags">
+              <span>45 AH</span><span>City Cars</span><span>Maintenance Free</span>
+            </div>
+            <p>Popular for hatchbacks and compact sedans. Reliable daily starts, clean fitment, and a quick visual health check with the Magic Eye indicator.</p>
+            <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20Exide%20Mileage%2045AH%20car%20battery." class="prod-cta" target="_blank" rel="noopener" data-i18n="checkAvail">Check Availability</a>
+          </div>
+          <div class="prod-card reveal-up glow-card" data-delay="1">
+            <div class="prod-brand amaron">Amaron</div>
+            <h3>Hi-Life 55AH</h3>
+            <div class="prod-tags">
+              <span>55 AH</span><span>Sedans</span><span>Long Life</span>
+            </div>
+            <p>Strong pick for sedans that need higher cranking support and low-maintenance performance in hot conditions.</p>
+            <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20Amaron%20Hi-Life%2055AH%20car%20battery." class="prod-cta" target="_blank" rel="noopener" data-i18n="checkAvail">Check Availability</a>
+          </div>
+          <div class="prod-card reveal-up glow-card" data-delay="2">
+            <div class="prod-brand powerzone">Powerzone</div>
+            <h3>Premium 65AH</h3>
+            <div class="prod-tags">
+              <span>65 AH</span><span>SUVs</span><span>Heavy Load</span>
+            </div>
+            <p>Designed for SUVs and higher accessory load, with solid reserve capacity for everyday electrical demand.</p>
+            <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20Powerzone%2065AH%20car%20battery." class="prod-cta" target="_blank" rel="noopener" data-i18n="checkAvail">Check Availability</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BIKE tab -->
+      <div class="ppanel" id="panel-bike">
+        <div class="prod-grid">
+          <div class="prod-card reveal-up glow-card" data-delay="0">
+            <div class="prod-brand amaron">Amaron</div>
+            <h3>Pro Bike Rider</h3>
+            <div class="prod-tags">
+              <span>Motorcycles</span><span>Reliable Starts</span>
+            </div>
+            <p>Dependable commuter-bike option with stable starts, low maintenance, and good everyday durability.</p>
+            <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20Amaron%20Pro%20Bike%20battery." class="prod-cta" target="_blank" rel="noopener" data-i18n="checkAvail">Check Availability</a>
+          </div>
+          <div class="prod-card reveal-up glow-card" data-delay="1">
+            <div class="prod-brand exide">Exide</div>
+            <h3>Xplore (FXL0-XLTZ4A / 5)</h3>
+            <div class="prod-tags">
+              <span>Scooters</span><span>Low Maintenance</span>
+            </div>
+            <p>Ideal for scooters and light bikes, with dependable cranking and a practical low-maintenance ownership experience.</p>
+            <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20Exide%20Xplore%20bike%20battery." class="prod-cta" target="_blank" rel="noopener" data-i18n="checkAvail">Check Availability</a>
+          </div>
+          <div class="prod-card reveal-up glow-card" data-delay="2">
+            <div class="prod-brand powerzone">Powerzone</div>
+            <h3>Ride Plus</h3>
+            <div class="prod-tags">
+              <span>Budget</span><span>Stable Starts</span>
+            </div>
+            <p>Value-focused bike battery for riders who want reliable starts without stepping into a premium price band.</p>
+            <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20Powerzone%20Ride%20Plus%20battery." class="prod-cta" target="_blank" rel="noopener" data-i18n="checkAvail">Check Availability</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- INVERTER tab -->
+      <div class="ppanel" id="panel-inverter">
+        <div class="prod-grid">
+          <div class="prod-card reveal-up glow-card" data-delay="0">
+            <div class="prod-brand exide">Exide</div>
+            <h3>InvaTubular 150AH</h3>
+            <div class="prod-tags">
+              <span>150 AH</span><span>Home</span><span>Tubular</span>
+            </div>
+            <p>Steady home-backup option for moderate to heavy use, especially where longer power cuts are common.</p>
+            <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20Exide%20150AH%20inverter%20battery." class="prod-cta" target="_blank" rel="noopener" data-i18n="checkAvail">Check Availability</a>
+          </div>
+          <div class="prod-card reveal-up glow-card" data-delay="1">
+            <div class="prod-brand amaron">Amaron</div>
+            <h3>Current Tall Tubular</h3>
+            <div class="prod-tags">
+              <span>Tall Tubular</span><span>Fast Charge</span>
+            </div>
+            <p>Built for deeper discharge cycles and quicker recharge, making it a strong option for regular household backup.</p>
+            <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20Amaron%20Current%20Tall%20Tubular%20battery." class="prod-cta" target="_blank" rel="noopener" data-i18n="checkAvail">Check Availability</a>
+          </div>
+          <div class="prod-card reveal-up glow-card" data-delay="2">
+            <div class="prod-brand powerzone">Powerzone</div>
+            <h3>Eco Tubular</h3>
+            <div class="prod-tags">
+              <span>Value</span><span>Backup</span>
+            </div>
+            <p>Great value option for home backup setups that need stable performance without stretching the budget.</p>
+            <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20Powerzone%20Eco%20Tubular%20battery." class="prod-cta" target="_blank" rel="noopener" data-i18n="checkAvail">Check Availability</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EXPERT ========== -->
+<section id="expert" class="expert-section section">
+  <div class="expert-bg-glow"></div>
+  <div class="container">
+    <div class="expert-layout">
+      <div class="expert-visual reveal-left">
+        <div class="expert-photo-frame">
+          <img src="assets/images/expert.png" alt="Khaja Mujahiduddin, battery specialist at Royal Batteries" class="expert-photo" width="900" height="1200" loading="lazy" decoding="async">
+          <div class="ep-badge">
+            <span class="ep-num" data-count="20">0+</span>
+            <span class="ep-label" data-i18n="yearsExp">Years<br>Experience</span>
+          </div>
+        </div>
+      </div>
+      <div class="expert-info reveal-right">
+        <div class="section-tag" data-i18n="expertTag">Meet the Expert</div>
+        <h2 data-i18n="expertName">Khaja Mujahiduddin</h2>
+        <div class="expert-role" data-i18n="expertRole">Technical Battery Specialist | Royal Batteries, Gajwel</div>
+        <div class="expert-bullets">
+          <div class="eb-item">
+            <span class="eb-check"><span class="material-symbols-rounded" aria-hidden="true">check_circle</span></span>
+            <span data-i18n="exp1">Deep diagnostics for charging & battery health issues</span>
+          </div>
+          <div class="eb-item">
+            <span class="eb-check"><span class="material-symbols-rounded" aria-hidden="true">check_circle</span></span>
+            <span data-i18n="exp2">Practical recommendations based on your usage pattern</span>
+          </div>
+          <div class="eb-item">
+            <span class="eb-check"><span class="material-symbols-rounded" aria-hidden="true">check_circle</span></span>
+            <span data-i18n="exp3">Trusted warranty claim handling for all major brands</span>
+          </div>
+          <div class="eb-item">
+            <span class="eb-check"><span class="material-symbols-rounded" aria-hidden="true">check_circle</span></span>
+            <span data-i18n="exp4">Serving Gajwel, Siddipet & Medak for over two decades</span>
+          </div>
+        </div>
+        <blockquote class="expert-quote" data-i18n="expertQuote">"The right battery is not about price alone. It is about fit, usage pattern, and long-term reliability. I will help you choose correctly every time."</blockquote>
+        <div class="expert-ctas">
+          <div class="magnetic-wrap"><a href="tel:+919397617823" class="pill-btn" data-i18n="callExpert">Call the Expert</a></div>
+          <div class="magnetic-wrap"><a href="https://wa.me/919397617823?text=Hi%2C%20I%20would%20like%20expert%20battery%20advice." class="pill-btn outline" target="_blank" rel="noopener" data-i18n="msgExpert">Message on WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GUIDE / ACCORDION ========== -->
+<section id="guide" class="guide-section section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag" data-i18n="guideTag">Know Before You Buy</div>
+      <h2 class="section-title">Battery Buying <em>Guide</em></h2>
+      <p class="section-sub" data-i18n="guideSub">Clear answers from a 20-year expert. No jargon, just honest advice.</p>
+    </div>
+    <div class="accordion reveal-up">
+      <div class="acc-item glow-card">
+        <button class="acc-header" type="button">
+          <span data-i18n="faq1q">What is CCA and why does it matter?</span>
+          <div class="acc-icon"><span></span><span></span></div>
+        </button>
+        <div class="acc-body">
+          <p data-i18n="faq1a">CCA (Cold Cranking Amps) is a critical rating that measures how strongly a battery can start an engine in cold temperatures. Specifically, it indicates the number of amps a 12-volt battery can deliver for 30 seconds at 0°F (-18°C) while maintaining at least 7.2 volts. Higher CCA means the battery can start your vehicle more reliably, which is incredibly important for larger engines or during cold mornings when engine oil thickens and creates high resistance.</p>
+        </div>
+      </div>
+      <div class="acc-item glow-card">
+        <button class="acc-header" type="button">
+          <span data-i18n="faq2q">How do I choose the right AH size?</span>
+          <div class="acc-icon"><span></span><span></span></div>
+        </button>
+        <div class="acc-body">
+          <p data-i18n="faq2a">Ampere Hour (AH) dictates how long the battery can supply a specific current before dying. You should strictly follow your vehicle manufacturer's recommendation. Choosing a lower AH rating means your accessories (like AC, headlights, and stereo) might drain the battery quickly and leave you stranded. At Royal Batteries, our 25+ years of experience ensure we match the exact AH and DIN layout required for your car.</p>
+        </div>
+      </div>
+      <div class="acc-item glow-card">
+        <button class="acc-header" type="button">
+          <span data-i18n="faq3q">How often should inverter batteries be checked?</span>
+          <div class="acc-icon"><span></span><span></span></div>
+        </button>
+        <div class="acc-body">
+          <p data-i18n="faq3a">For heavy daily usage out in districts like Medak and Siddipet, check the water level every 3–4 months. Using distilled water exclusively and maintaining clean, petroleum-jelly-coated terminals can practically double your battery's lifespan. Never let the float indicators drop to the red zone. Drop by our Gajwel store for a completely free health and water-level check!</p>
+        </div>
+      </div>
+      <div class="acc-item glow-card">
+        <button class="acc-header" type="button">
+          <span data-i18n="faq4q">Is Exide or Amaron better for my car?</span>
+          <div class="acc-icon"><span></span><span></span></div>
+        </button>
+        <div class="acc-body">
+          <p data-i18n="faq4a">Both are premium, highly reliable brands, but they serve different needs. Exide boasts heavy-duty plate technology proven to last incredibly long in extreme Indian conditions. Amaron features SilvenX alloy, making it genuinely zero-maintenance with exceptionally high CCA output. As the best battery shop in the region, we always analyze your driving habits and budget before recommending!</p>
+        </div>
+      </div>
+      <div class="acc-item glow-card">
+        <button class="acc-header" type="button">
+          <span data-i18n="faq5q">What signs mean my battery is failing?</span>
+          <div class="acc-icon"><span></span><span></span></div>
+        </button>
+        <div class="acc-body">
+          <p data-i18n="faq5a">The most obvious signs are slow engine cranking (a sluggish "rur-rur-rur" sound), headlights dimming while idling, the need to press the accelerator to start, a bulging battery case, or a dashboard battery light. Batteries usually last 3-5 years. If yours is older, visit us immediately before you experience a sudden breakdown.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CCA GUIDE TABLES ========== -->
+<section id="cca" class="cca-section section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag">CCA Reference</div>
+      <h2 class="section-title">Exide Model-wise <em>CCA Guide</em></h2>
+      <p class="section-sub">Quick CCA lookup to match starting performance correctly. Understanding CCA prevents morning start failures. When upgrading, always match or exceed the OEM CCA rating, but avoid going excessively high unless you have heavy winch/audio loads.</p>
+    </div>
+
+    <div class="cca-tabs reveal-up" role="tablist" aria-label="CCA segments">
+      <button class="cca-tab active" type="button" id="cca-tab-tw" role="tab" data-cca="tw" aria-selected="true" aria-controls="cca-panel-tw" tabindex="0">Two Wheeler</button>
+      <button class="cca-tab" type="button" id="cca-tab-petrol" role="tab" data-cca="petrol" aria-selected="false" aria-controls="cca-panel-petrol" tabindex="-1">Petrol Car</button>
+      <button class="cca-tab" type="button" id="cca-tab-commercial" role="tab" data-cca="commercial" aria-selected="false" aria-controls="cca-panel-commercial" tabindex="-1">Commercial</button>
+    </div>
+
+    <div class="cca-panels">
+      <div class="cca-panel active" id="cca-panel-tw" role="tabpanel" aria-labelledby="cca-tab-tw">
+        <div class="cca-table-wrap">
+          <table class="cca-table">
+            <thead>
+              <tr><th>Model</th><th>Capacity (Ah)</th><th>CCA (SAE)</th><th>Remarks</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Exide Xplore FXL0-XLTZ4A</td><td>4</td><td>95</td><td>Maintenance-free, VRLA, spill-proof</td></tr>
+              <tr><td>Exide Xplore FXL0-XLTZ5</td><td>4</td><td>115</td><td>VRLA, low self-discharge</td></tr>
+              <tr><td>Exide Xplore FXL0-XLTZ7</td><td>6</td><td>150</td><td>VRLA, superior cranking power</td></tr>
+              <tr><td>Exide Xplore FXL0-12XL7B-B</td><td>7</td><td>170</td><td>VRLA, high cranking power</td></tr>
+              <tr><td>Exide Xplore FXL0-XLTZ9</td><td>9</td><td>180</td><td>VRLA, spill-proof</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="cca-panel" id="cca-panel-petrol" role="tabpanel" aria-labelledby="cca-tab-petrol" hidden>
+        <div class="cca-table-wrap">
+          <table class="cca-table">
+            <thead>
+              <tr><th>Model</th><th>Capacity (Ah)</th><th>CCA (SAE)</th><th>Remarks</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Exide Mileage FML8-ML35R</td><td>35</td><td>270</td><td>Robust design, spill-resistant</td></tr>
+              <tr><td>Exide Mileage FML8-ML40LBH</td><td>40</td><td>280</td><td>High temperature resistance</td></tr>
+              <tr><td>Exide Mileage FML0-MLDIN50</td><td>50</td><td>405</td><td>High reliability, Magic Eye indicator</td></tr>
+              <tr><td>Exide Mileage FML8-MLDIN65LH</td><td>65</td><td>500</td><td>High reliability, Magic Eye indicator</td></tr>
+              <tr><td>Exide Mileage FML0-MLDIN66</td><td>66</td><td>590</td><td>High cranking power, DIN standard</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="cca-panel" id="cca-panel-commercial" role="tabpanel" aria-labelledby="cca-tab-commercial" hidden>
+        <div class="cca-table-wrap">
+          <table class="cca-table">
+            <thead>
+              <tr><th>Model</th><th>Capacity (Ah)</th><th>CCA (SAE)</th><th>Remarks</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Exide Xpress XP800</td><td>80</td><td>530</td><td>Spill-resistant, 36-month warranty</td></tr>
+              <tr><td>Exide Xpress XP1100</td><td>110</td><td>700</td><td>High cranking power, spill-resistant</td></tr>
+              <tr><td>Exide Xpress XP1300</td><td>130</td><td>720</td><td>Right layout, spill-resistant</td></tr>
+              <tr><td>Exide Xpress XP1500</td><td>150</td><td>785</td><td>High capacity for long hauls</td></tr>
+              <tr><td>Exide Drive 150R</td><td>150</td><td>785</td><td>Designed for heavy engines</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== REVIEWS ========== -->
+<section id="reviews" class="reviews-section section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag" data-i18n="revTag">Customer Stories</div>
+      <h2 class="section-title">Real People, <em>Real Trust</em></h2>
+      <div class="rating-summary reveal-up">
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-score">5.0</div>
+        <div class="rating-count" data-i18n="ratCount">Verified customers in Gajwel & Siddipet</div>
+      </div>
+    </div>
+
+    <div class="reviews-track-wrap">
+      <div class="reviews-track" id="reviewsTrack">
+        <div class="rev-card glow-card">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text" data-i18n="rev1t">"Very fast battery replacement and clear explanation. Pricing was 100% genuine — no surprises at all."</p>
+          <div class="rev-author">
+            <div class="rev-avatar">AM</div>
+            <div>
+              <div class="rev-name">Afroz Mohammed</div>
+              <div class="rev-loc" data-i18n="revLoc1">Gajwel Customer</div>
+            </div>
+          </div>
+        </div>
+        <div class="rev-card glow-card">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text" data-i18n="rev2t">"Warranty claim handled so quickly and professionally. I didn't expect such great after-sales support in a small town."</p>
+          <div class="rev-author">
+            <div class="rev-avatar">KA</div>
+            <div>
+              <div class="rev-name">Khaja Amaan</div>
+              <div class="rev-loc" data-i18n="revLoc2">Siddipet Customer</div>
+            </div>
+          </div>
+        </div>
+        <div class="rev-card glow-card">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text" data-i18n="rev3t">"Got the exact right inverter battery in one visit. Very knowledgeable team — explained everything clearly."</p>
+          <div class="rev-author">
+            <div class="rev-avatar">MA</div>
+            <div>
+              <div class="rev-name">Mohammed Afnan</div>
+              <div class="rev-loc" data-i18n="revLoc3">Medak Customer</div>
+            </div>
+          </div>
+        </div>
+        <div class="rev-card glow-card">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">"Called at 7am and they were already open. My car battery replaced in 30 minutes flat. Outstanding service!"</p>
+          <div class="rev-author">
+            <div class="rev-avatar">SR</div>
+            <div>
+              <div class="rev-name">Suresh Reddy</div>
+              <div class="rev-loc">Gajwel Customer</div>
+            </div>
+          </div>
+        </div>
+        <div class="rev-card glow-card">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">"Honest pricing, genuine battery, quick installation. Exactly what you want. Highly recommend Royal Batteries!"</p>
+          <div class="rev-author">
+            <div class="rev-avatar">PR</div>
+            <div>
+              <div class="rev-name">Priya Raj</div>
+              <div class="rev-loc">Siddipet Customer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-controls">
+      <button class="rev-arrow" id="revPrev" onclick="scrollReviews(-1)" aria-label="Previous"><span class="material-symbols-rounded" aria-hidden="true">west</span></button>
+      <button class="rev-arrow" id="revNext" onclick="scrollReviews(1)" aria-label="Next"><span class="material-symbols-rounded" aria-hidden="true">east</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DEALER ========== -->
+<section class="dealer-section">
+  <div class="container">
+    <div class="dealer-card reveal-up glow-card">
+      <div class="dealer-copy">
+        <div class="section-tag light" data-i18n="dealerTag">For Businesses</div>
+        <h2 data-i18n="dealerTitle">Dealer & Bulk Partnership</h2>
+        <p data-i18n="dealerSub">Resellers, workshops & institutions — contact us for exclusive dealer pricing and recurring supply arrangements.</p>
+        <div class="dealer-ctas">
+          <div class="magnetic-wrap"><a href="tel:+919397617823" class="hbtn hbtn-white" data-i18n="callPartner">Call for Partnership</a></div>
+          <div class="magnetic-wrap"><a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20am%20interested%20in%20dealer%20partnership." class="hbtn hbtn-outline-white" target="_blank" rel="noopener" data-i18n="waPartner">WhatsApp Partnership</a></div>
+        </div>
+      </div>
+      <div class="dealer-visual">
+        <div class="dv-stat">
+          <span class="dv-num" data-count="3">0+</span>
+          <span class="dv-label" data-i18n="brandPartnerships">Brand Partnerships</span>
+        </div>
+        <div class="dv-stat">
+          <span class="dv-num" data-count="100">0+</span>
+          <span class="dv-label" data-i18n="happyCustomers">Happy Customers</span>
+        </div>
+        <div class="dv-stat">
+          <span class="dv-num" data-count="50">0+</span>
+          <span class="dv-label" data-i18n="serviceRadius">Service Radius</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LOCATION ========== -->
+<section id="location" class="location-section section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <div class="section-tag" data-i18n="locTag">Find Us</div>
+      <h2 class="section-title">Visit Us in <em>Gajwel</em></h2>
+      <p class="section-sub" data-i18n="locSub">Opposite Munsif Court, Gajwel, Telangana — Open daily 6 AM to 9 PM.</p>
+    </div>
+    <div class="location-layout">
+      <div class="loc-info reveal-left">
+        <div class="loc-item">
+          <div class="loc-icon"><span class="material-symbols-rounded" aria-hidden="true">location_on</span></div>
+          <div>
+            <strong data-i18n="address">Address</strong>
+            <p>Opposite Munsif Court, Gajwel, Siddipet District, Telangana</p>
+          </div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-icon"><span class="material-symbols-rounded" aria-hidden="true">schedule</span></div>
+          <div>
+            <strong data-i18n="hours">Hours</strong>
+            <p data-i18n="hoursDetail">Open every day — 6:00 AM to 9:00 PM</p>
+          </div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-icon"><span class="material-symbols-rounded" aria-hidden="true">call</span></div>
+          <div>
+            <strong data-i18n="phone">Phone</strong>
+            <p><a href="tel:+919397617823">+91 93976 17823</a></p>
+          </div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-icon"><span class="material-symbols-rounded" aria-hidden="true">travel_explore</span></div>
+          <div>
+            <strong data-i18n="serving">Serving</strong>
+            <p>Gajwel · Siddipet · Medak · Surroundings</p>
+          </div>
+        </div>
+      </div>
+      <div class="map-frame reveal-right">
+        <a href="https://maps.app.goo.gl/SPkWhME4LPGK5vhg9" target="_blank" rel="noopener" style="position:absolute; inset:0; z-index:10;" aria-label="Open Map Location"></a>
+        <iframe title="Royal Batteries location in Gajwel" src="https://www.google.com/maps?q=17.854089,78.683394&hl=en&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT CTA ========== -->
+<section id="contact" class="contact-cta-section">
+  <div class="cta-particles" id="ctaParticles"></div>
+  <div class="container">
+    <div class="cta-content reveal-up">
+      <h2>Dead Battery? We'll Have <em>You Moving</em> Fast.</h2>
+      <p data-i18n="ctaSub">Call or WhatsApp right now. We deliver fast service, honest recommendations, and dependable after-sales support that keeps customers coming back.</p>
+      <div class="cta-actions">
+        <div class="magnetic-wrap">
+          <a href="tel:+919397617823" class="hbtn hbtn-primary large">
+            <span class="material-symbols-rounded" aria-hidden="true">call</span>
+            <div>
+              <span class="hbtn-main" data-i18n="callNow">Call Now</span>
+              <span class="hbtn-sub">9397617823</span>
+            </div>
+          </a>
+        </div>
+        <div class="magnetic-wrap">
+          <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20battery%20support." class="hbtn hbtn-whatsapp large" target="_blank" rel="noopener">
+            <span class="material-symbols-rounded" aria-hidden="true">forum</span>
+            <div>
+              <span class="hbtn-main" data-i18n="whatsappNow">WhatsApp Now</span>
+              <span class="hbtn-sub" data-i18n="instantReply">Instant Reply</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="cta-trust">
+        <span><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span data-i18n="free">Free Diagnostics</span></span>
+        <span><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span data-i18n="genuine">Genuine Brands</span></span>
+        <span><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span data-i18n="warranty2">Warranty Backed</span></span>
+        <span><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span data-i18n="noHiddenFees">No Hidden Fees</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="assets/logo.png" alt="Royal Batteries" class="logo-img-footer"></div>
+        <p data-i18n="footerTagline">Gajwel's most trusted battery partner since 2005.</p>
+        <div class="footer-social">
+          <div class="magnetic-wrap">
+            <a href="tel:+919397617823" class="social-pill">
+              <span class="material-symbols-rounded" aria-hidden="true">call</span>
+              <span data-i18n="callNow">Call</span>
+            </a>
+          </div>
+          <div class="magnetic-wrap">
+            <a href="https://wa.me/919397617823" class="social-pill" target="_blank" rel="noopener"><span class="material-symbols-rounded" aria-hidden="true">forum</span><span>WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="services">Services</h4>
+        <a href="#services" data-i18n="svc1t">Car Battery</a>
+        <a href="#services" data-i18n="svc2t">Bike Battery</a>
+        <a href="#services" data-i18n="svc3t">Inverter Batteries</a>
+        <a href="#services" data-i18n="svc5t">Commercial Vehicles</a>
+        <a href="#services" data-i18n="svc4t">Testing & Diagnostics</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="brands">Brands</h4>
+        <span>Exide</span>
+        <span>Amaron</span>
+        <span>Powerzone</span>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="contact">Contact</h4>
+        <a href="tel:+919397617823">+91 93976 17823</a>
+        <span>Opposite Munsif Court</span>
+        <span>Gajwel, Telangana</span>
+        <span data-i18n="hoursDetail">6:00 AM — 9:00 PM Daily</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Royal Batteries, Gajwel. <span data-i18n="allRights">All rights reserved.</span></p>
+      <p data-i18n="footerOwner">Owner: Khaja Mujahiduddin</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== MOBILE STICKY BAR ========== -->
+<div class="sticky-bar" id="stickyBar">
+  <a href="tel:+919397617823" class="sb-call">
+    <span class="material-symbols-rounded" aria-hidden="true">call</span>
+    <span data-i18n="callNow">Call Now</span>
+  </a>
+  <a href="https://wa.me/919397617823?text=Hi%20Royal%20Batteries%2C%20I%20need%20battery%20support." class="sb-whatsapp" target="_blank" rel="noopener">
+    <span class="material-symbols-rounded" aria-hidden="true">forum</span>
+    <span data-i18n="whatsappNow">WhatsApp</span>
+  </a>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
