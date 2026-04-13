@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
+import LocationGrid from '../components/LocationGrid.astro';
+import site from '../data/site.json';
+import locations from '../data/locations.json';
+
+const allAreas = locations.map(l => ({ name: l.name, slug: l.slug }));
+
+const faqs = [
+  { q: 'Do you deliver batteries outside Gajwel?', a: 'Yes! We deliver to a 50+ km radius covering Siddipet, Medak, Sangareddy districts. Areas include Siddipet, Dubbak, Toopran, Wargal, Pragnapur, Markook, and 25+ villages. Call 9397617823.' },
+  { q: 'How long does delivery usually take?', a: 'Gajwel & 10 km radius: 20–30 minutes. 10–25 km: 45–75 minutes. 25–50 km: 1.5–2 hours. We confirm exact time when you place the order.' },
+  { q: 'Is there a delivery charge?', a: 'Delivery within 20 km of Gajwel is free. For 20–50 km, a minimal delivery charge applies — we always discuss this upfront before you confirm the order. No surprises.' },
+  { q: 'Can you deliver in an emergency?', a: 'Yes! Emergency battery delivery is our speciality. Call 9397617823 any time 6 AM to 9 PM. If you are on the road or have a breakdown, tell us your exact location and we will come to you.' },
+  { q: 'Do you install the battery at my location?', a: 'Yes, our delivery includes installation. Our technician carries the battery, tools, and voltmeter to test the new battery after installation — all in one visit.' },
+];
+---
+<BaseLayout
+  title="Battery Doorstep Delivery Service | Gajwel to 50 km Radius | Royal Batteries"
+  description="Same-day battery delivery from Gajwel to Siddipet, Medak, and 50+ km radius. Car, bike & inverter batteries delivered and installed at your location. Call 9397617823."
+  canonical="/battery-delivery-service"
+  breadcrumbs={[{ name: 'Battery Delivery Service', url: '/battery-delivery-service' }]}
+>
+  <div class="hero-inner-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">›</span><span aria-current="page">Battery Delivery Service</span>
+      </nav>
+      <h1 class="page-h1">Battery Doorstep Delivery — Gajwel, Siddipet, Medak &amp; Villages</h1>
+      <p class="page-sub">Same-day battery delivery within 50 km of Gajwel. Car, bike &amp; inverter batteries delivered and installed at your doorstep. Free delivery within 20 km.</p>
+      <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+        <a href={`tel:${site.phone}`} class="btn btn-primary">📞 Call {site.phoneDisplay}</a>
+        <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp Order</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-section" style="max-width:840px;">
+        <h2>How Our Battery Delivery Works</h2>
+        <div style="display:grid; gap:14px; margin:20px 0;">
+          {[
+            { step:'1', title:'Call or WhatsApp', desc:`Contact us at ${site.phoneDisplay}. Tell us your vehicle type, your location, and what battery you need.` },
+            { step:'2', title:'Instant Quote', desc:'We give you an exact price on the call — model, warranty, and any delivery charges discussed upfront.' },
+            { step:'3', title:'Fast Dispatch', desc:'Our delivery technician is dispatched with the right battery, tools, and old-battery exchange facilities.' },
+            { step:'4', title:'Installed at Your Door', desc:'Battery fitted in 15–30 minutes. We test the voltage and charging system before leaving.' },
+          ].map(s => (
+            <div class="card" style="display:flex; gap:20px; align-items:flex-start; padding:20px 24px;">
+              <div style="width:40px; height:40px; background:var(--red); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.1rem; flex-shrink:0;">{s.step}</div>
+              <div><h3 style="font-size:1rem; margin-bottom:4px;">{s.title}</h3><p style="font-size:0.88rem;">{s.desc}</p></div>
+            </div>
+          ))}
+        </div>
+
+        <h2>Delivery Coverage Area</h2>
+        <p>We currently deliver batteries to all areas listed below. If your location is not listed, call us — we may still be able to reach you.</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0;">
+          {[
+            { zone:'0–10 km', time:'20–30 min', areas:'Gajwel town, Kothaguda, Raikal, Velmal', charge:'Free' },
+            { zone:'10–20 km', time:'30–50 min', areas:'Markook, Jagdevpur, Regode, Turkapally, Wargal', charge:'Free' },
+            { zone:'20–35 km', time:'50–90 min', areas:'Dubbak, Sangem, Kondapak, Chinnakodur, Siddipet', charge:'Minimal' },
+            { zone:'35–50+ km', time:'1.5–2 hrs', areas:'Toopran, Komuravelli, Narsapur, Papannapet, Chegunta', charge:'Discussed upfront' },
+          ].map(z => (
+            <div class="card" style="padding:20px;">
+              <h3 style="font-size:0.95rem; color:var(--red); margin-bottom:8px;">{z.zone} Zone</h3>
+              <div style="font-size:0.85rem; display:flex; flex-direction:column; gap:4px; color:var(--muted);">
+                <span>⏱ Delivery: <strong>{z.time}</strong></span>
+                <span>📍 {z.areas}</span>
+                <span>💰 Charge: <strong style="color:var(--text);">{z.charge}</strong></span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LocationGrid areas={allAreas} title="All Delivery Locations" dark={false} />
+
+  <FAQSection faqs={faqs} title="Battery Delivery FAQs" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-banner">
+        <div><h2>Order Battery Delivery Now</h2><p>Call or WhatsApp — tell us your location and vehicle. Delivered and installed same day.</p></div>
+        <div class="cta-actions">
+          <a href={`tel:${site.phone}`} class="btn btn-outline-white btn-lg">📞 {site.phoneDisplay}</a>
+          <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

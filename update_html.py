@@ -23,7 +23,7 @@ html = html.replace('<img src="assets/showroom_bg.png" alt="Royal Batteries Prem
 
 # 5. Gallery / Showcase replacements
 # expert_portrait -> expert_at_work
-html = html.replace('src="assets/expert_portrait.png"', 'src="assets/images/expert.png"')
+html = html.replace('src="assets/expert_portrait.png"', 'src="assets/images/expert_at_work.png"')
 
 # hero_bg used as a side showcase photo -> service_bay
 html = html.replace('src="assets/hero_bg.png"', 'src="assets/images/service_bay.png"')

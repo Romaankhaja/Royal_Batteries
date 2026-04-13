@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+import locations from '../data/locations.json';
+import FAQSection from '../components/FAQSection.astro';
+import LocationGrid from '../components/LocationGrid.astro';
+
+const siddipetBelt = locations.filter(l => l.belt === 'Siddipet').map(l => ({ name: l.name, slug: l.slug }));
+
+const faqs = [
+  { q: 'How long does a 150AH inverter battery last?', a: 'On a standard home load (3 fans, 3 lights), a 150AH battery usually provides 5–6 hours of backup. High-capacity 200AH batteries can last 8–10 hours.' },
+  { q: 'Do you deliver inverter batteries to villages near Siddipet?', a: 'Yes! We deliver to Dubbak, Nangnoor, Chinnakodur, Kondapak, and all surrounding villages from our Gajwel hub. Delivery is same-day.' },
+  { q: 'Which is better, Flat plate or Tubular?', a: 'For rural areas with long power cuts, Tubular batteries (like Exide InvaTubular) are much better as they handle deep discharges and have a 4–5 year lifespan.' }
+];
+---
+<BaseLayout
+  title="Inverter Battery Siddipet Delivery | Exide Tubular Batteries"
+  description="Home inverter battery delivery in Siddipet, Dubbak & villages. Exide InvaTubular Authorized Dealer. High-quality tubular batteries for long power cuts. Call 9397617823."
+  canonical="/inverter-battery-siddipet-delivery"
+  breadcrumbs={[{ name: 'Inverter Battery Siddipet', url: '/inverter-battery-siddipet-delivery' }]}
+>
+  <div class="hero-inner-page">
+    <div class="container">
+      <h1 class="page-h1">Inverter Battery Delivery in Siddipet & Surrounding Villages</h1>
+      <p class="page-sub">Heavy-duty Exide & Amaron tubular batteries. Same-day delivery and expert installation at your home in Siddipet district.</p>
+      <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+        <a href={`tel:${site.phone}`} class="btn btn-primary">📞 Call {site.phoneDisplay}</a>
+        <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp Order</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-section" style="max-width:840px;">
+        <h2>Superior Power Backup for Siddipet Households</h2>
+        <p>Are you facing long power cuts in Siddipet or nearby mandals? Royal Batteries specializes in high-capacity home inverter systems. As an Exide CARE authorized dealer, we bring industrial-grade tubular batteries directly to your doorstep in Siddipet, Dubbak, and beyond.</p>
+        
+        <h3>Our Inverter Battery Specialities</h3>
+        <ul>
+          <li><strong>Exide InvaTubular:</strong> India's #1 tubular battery for deep-cycle performance.</li>
+          <li><strong>Fast Charging:</strong> Designed to charge quickly even during short power supply windows.</li>
+          <li><strong>Extended Lifespan:</strong> Our tall tubular batteries typically last 54–60 months.</li>
+          <li><strong>Free Home Installation:</strong> Professional mounting and wiring check by our technicians.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LocationGrid areas={siddipetBelt} title="Areas Covered in Siddipet Belt" />
+  <FAQSection faqs={faqs} title="Inverter Battery FAQs" />
+</BaseLayout>

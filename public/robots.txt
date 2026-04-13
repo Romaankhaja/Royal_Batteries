@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /_assets/
+Disallow: /_astro/
+
+Sitemap: https://royalbatteries.netlify.app/sitemap-index.xml

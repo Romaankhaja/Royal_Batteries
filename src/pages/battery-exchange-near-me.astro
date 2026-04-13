@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+import locations from '../data/locations.json';
+import FAQSection from '../components/FAQSection.astro';
+import LocationGrid from '../components/LocationGrid.astro';
+
+const topLocations = locations.slice(0, 12).map(l => ({ name: l.name, slug: l.slug }));
+
+const faqs = [
+  { q: 'How much discount do I get for my old car battery?', a: 'Discounts typically range from ₹500 to ₹1,500 depending on the size and weight (Ah) of your old lead-acid battery. Exact scrap value is calculated on the spot.' },
+  { q: 'Do you accept damaged or leaking batteries for exchange?', a: 'Yes! We accept all old lead-acid batteries regardless of condition, as long as the internal plates are mostly intact. We ensure they are sent for eco-friendly recycling.' },
+  { q: 'Can I exchange my inverter battery?', a: 'Absolutely. Large tubular inverter batteries have high scrap value, often giving you a discount of ₹2,000–₹3,500 on your new purchase.' }
+];
+---
+<BaseLayout
+  title="Battery Exchange Near Me | Old Battery Buyback Gajwel"
+  description="Get the best exchange value for your old car, bike, or inverter battery near you. Royal Batteries Gajwel offers instant discounts on new Exide & Amaron batteries. Call 9397617823."
+  canonical="/battery-exchange-near-me"
+  breadcrumbs={[{ name: 'Battery Exchange Near Me', url: '/battery-exchange-near-me' }]}
+>
+  <div class="hero-inner-page">
+    <div class="container">
+      <h1 class="page-h1">Battery Exchange Near Me — Get the Best Value for Scrap</h1>
+      <p class="page-sub">Upgrade to a new Exide or Amaron battery today and get instant buyback value for your old battery. Free pickup across Gajwel & Siddipet.</p>
+      <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+        <a href={`tel:${site.phone}`} class="btn btn-primary">📞 Call {site.phoneDisplay}</a>
+        <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp">💬 Check Exchange Value</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-section" style="max-width:840px;">
+        <h2>The Best Battery Exchange Deal in Telangana</h2>
+        <p>Searching for "battery exchange near me"? Don't throw away your old dead battery. At Royal Batteries Gajwel, we offer the highest market scrap rates for old lead-acid batteries. Swap your old battery for a brand new Exide or Amaron and save significantly on your purchase.</p>
+        
+        <h3>Exchange Programs Available</h3>
+        <ul>
+          <li><strong>Car Battery Exchange:</strong> Instant ₹500–₹1,500 off on new Exide Mileage/Matrix series.</li>
+          <li><strong>Inverter Battery Buyback:</strong> Get up to ₹3,500 discount when upgrading your home backup system.</li>
+          <li><strong>Bike Battery Swap:</strong> Get ₹50–₹150 off for your old motorcycle or scooter battery.</li>
+          <li><strong>Bulk Exchange:</strong> Special rates for commercial fleets, tractors, and multi-battery setups.</li>
+        </ul>
+
+        <h2>Eco-Friendly Recycling</h2>
+        <p>By exchanging your battery with an authorized dealer like Royal Batteries, you ensure that hazardous lead and acid are disposed of responsibly through official recycling channels, protecting our local groundwater and environment in Gajwel.</p>
+      </div>
+    </div>
+  </section>
+
+  <LocationGrid areas={topLocations} title="Serving These Areas" />
+  <FAQSection faqs={faqs} title="Exchange & Scrap FAQs" />
+</BaseLayout>

@@ -1,0 +1,48 @@
+---
+import site from '../data/site.json';
+---
+<header class="site-header" role="banner">
+  <nav class="container nav-inner" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="Royal Batteries Home">
+      <img src="/assets/logo.png" alt="Royal Batteries Logo - Authorized Exide CARE Dealer Gajwel" width="120" height="36" loading="eager" fetchpriority="high" />
+    </a>
+
+    <div class="nav-links" role="list">
+      <a href="/car-batteries" class="nav-link" role="listitem">Car Batteries</a>
+      <a href="/bike-batteries" class="nav-link" role="listitem">Bike Batteries</a>
+      <a href="/inverter-batteries" class="nav-link" role="listitem">Inverter</a>
+      <a href="/battery-delivery-service" class="nav-link" role="listitem">Delivery</a>
+      <a href="/blog" class="nav-link" role="listitem">Blog</a>
+      <a href="/about-authorized-exide-dealer" class="nav-link" role="listitem">About</a>
+    </div>
+
+    <div class="nav-cta">
+      <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" aria-label="WhatsApp Royal Batteries">
+        💬 WhatsApp
+      </a>
+      <a href={`tel:${site.phone}`} class="btn btn-primary btn-sm" aria-label={`Call Royal Batteries ${site.phoneDisplay}`}>
+        📞 {site.phoneDisplay}
+      </a>
+    </div>
+
+    <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <button id="mobile-close" class="mobile-close" aria-label="Close menu">✕</button>
+  <a href="/" class="nav-link">Home</a>
+  <a href="/car-batteries" class="nav-link">Car Batteries</a>
+  <a href="/bike-batteries" class="nav-link">Bike Batteries</a>
+  <a href="/inverter-batteries" class="nav-link">Inverter Batteries</a>
+  <a href="/battery-delivery-service" class="nav-link">Battery Delivery</a>
+  <a href="/blog" class="nav-link">Battery Blog</a>
+  <a href="/about-authorized-exide-dealer" class="nav-link">About Us</a>
+  <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
+    <a href={`tel:${site.phone}`} class="btn btn-primary">📞 Call {site.phoneDisplay}</a>
+    <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp Us</a>
+  </div>
+</div>

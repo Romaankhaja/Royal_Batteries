@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReviewsSection from '../components/ReviewsSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import site from '../data/site.json';
+
+const faqs = [
+  { q: 'Is Royal Batteries really an authorized Exide dealer?', a: 'Yes. We are an officially certified Exide CARE Authorized Dealer in Gajwel, Siddipet district. This means all Exide batteries sold by us are 100% genuine, carry full Exide manufacturer warranty, and qualify for the national Exide warranty claim process.' },
+  { q: 'How long has Royal Batteries been in business?', a: `Royal Batteries was established in ${site.founded} — over 20 years of service to Gajwel, Siddipet, and Medak districts. We have served over 5,000 customers with a 4.8-star Google rating.` },
+  { q: 'Who owns Royal Batteries?', a: `Royal Batteries is owned and managed by ${site.owner}, a battery industry expert with 20+ years of experience. We are a family-run business committed to honest service and genuine products.` },
+  { q: 'Do you handle Exide warranty claims?', a: 'Yes. As an authorized Exide dealer, we process warranty claims on your behalf. If your Exide battery develops a fault within the replacement warranty period, bring it in and we will process the free replacement directly.' },
+];
+---
+<BaseLayout
+  title="About Royal Batteries | Authorized Exide CARE Dealer in Gajwel Since 2005"
+  description="Royal Batteries — Gajwel's Exide CARE authorized dealer since 2005. 20+ years serving Siddipet, Medak & Telangana with genuine batteries and honest service. Call 9397617823."
+  canonical="/about-authorized-exide-dealer"
+  breadcrumbs={[{ name: 'About Us', url: '/about-authorized-exide-dealer' }]}
+>
+  <div class="hero-inner-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">›</span><span aria-current="page">About Us</span>
+      </nav>
+      <h1 class="page-h1">About Royal Batteries — Exide CARE Authorized Dealer, Gajwel (Since 2005)</h1>
+      <p class="page-sub">20+ years of trusted battery service in Gajwel, Telangana. Genuine products, expert knowledge, honest pricing.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:60px; align-items:start;">
+        <div class="content-section">
+          <h2>Our Story</h2>
+          <p>Royal Batteries was founded in {site.founded} by {site.owner} in Gajwel, Siddipet district, Telangana. Starting as a small battery shop opposite Munsif Court, we have grown into the most trusted battery dealer in the Gajwel–Siddipet–Medak corridor — serving thousands of customers across vehicles, homes, and farms.</p>
+
+          <p>Our business was built on three principles: <strong>genuine products</strong>, <strong>fair pricing</strong>, and <strong>expert service</strong>. In 20+ years, we have never sold a duplicate battery. Every Exide battery carries the Exide CARE authorization seal and comes with proper documentation.</p>
+
+          <h2>Our Exide CARE Certification</h2>
+          <p>Being an <strong>Exide CARE Authorized Dealer</strong> means:</p>
+          <ul>
+            <li>We are directly authorized by Exide Industries Limited</li>
+            <li>All Exide batteries are sourced directly from Exide — no middlemen, no duplicates</li>
+            <li>We can process Exide warranty claims on your behalf</li>
+            <li>Our technicians are trained in Exide's battery standards and diagnostics</li>
+            <li>We maintain Exide's pricing standards — no price gouging</li>
+          </ul>
+
+          <h2>What We Stock</h2>
+          <p>Royal Batteries maintains an extensive inventory for immediate availability:</p>
+          <ul>
+            <li><strong>Car batteries</strong>: Exide Mileage, Matrix Pro, Exceed; Amaron BXLife, Hi-Life, FreshPack; Powerzone</li>
+            <li><strong>Two-wheeler batteries</strong>: Exide Xplore VRLA, Bikerz; Amaron Pro Bike Rider</li>
+            <li><strong>Inverter batteries</strong>: Exide InvaTubular (flat plate & tubular); Amaron Current Tall Tubular; Powerzone Eco</li>
+            <li><strong>Commercial batteries</strong>: Exide and Amaron for trucks, buses, tractors</li>
+          </ul>
+
+          <h2>Our Service Area</h2>
+          <p>Our Gajwel showroom serves walk-in customers from the entire district. For doorstep delivery, we cover a 50+ km radius including Siddipet, Medak, Pragnapur, Dubbak, Toopran, Wargal, and 30+ villages across Gajwel mandal and surrounds.</p>
+        </div>
+
+        <div>
+          <div class="card" style="padding:32px; margin-bottom:20px;">
+            <h3 style="margin-bottom:20px;">Quick Facts</h3>
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              {[
+                ['🏪', 'Founded', site.founded],
+                ['👤', 'Owner', site.owner],
+                ['📍', 'Location', `${site.address.street}, ${site.address.city}`],
+                ['📞', 'Phone', site.phoneDisplay],
+                ['🕐', 'Hours', site.hours],
+                ['⭐', 'Rating', '4.8 / 5 (247 reviews)'],
+                ['🚚', 'Service Radius', '50+ km'],
+                ['🔋', 'Customers Served', '5,000+'],
+              ].map(([icon, label, value]) => (
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:1.1rem; width:24px; text-align:center;">{icon}</span>
+                  <div>
+                    <strong style="font-size:0.8rem; color:var(--muted); display:block; margin-bottom:2px;">{label}</strong>
+                    <span style="font-size:0.92rem;">{value}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="card" style="padding:28px; text-align:center; background:var(--red); color:#fff; border:none;">
+            <div style="font-size:2.5rem; margin-bottom:8px;">⭐</div>
+            <div style="font-size:1rem; margin-bottom:4px;">Exide CARE</div>
+            <div style="font-size:1.2rem; font-weight:700;">Authorized Dealer</div>
+            <div style="font-size:0.82rem; opacity:0.85; margin-top:8px;">Gajwel, Telangana</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ReviewsSection />
+  <FAQSection faqs={faqs} title="About Royal Batteries — FAQs" />
+</BaseLayout>

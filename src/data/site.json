@@ -1,0 +1,31 @@
+{
+  "siteName": "Royal Batteries",
+  "tagline": "Exide Authorized Dealer | Gajwel, Telangana",
+  "description": "Royal Batteries is Gajwel's #1 Exide-authorized battery dealer, serving Siddipet, Medak & 50+ km radius with car, bike, inverter batteries and same-day delivery.",
+  "url": "https://royalbatteries.netlify.app",
+  "phone": "+919397617823",
+  "phoneDisplay": "9397617823",
+  "whatsapp": "https://wa.me/919397617823",
+  "address": {
+    "street": "Opposite Munsif Court",
+    "city": "Gajwel",
+    "district": "Siddipet",
+    "state": "Telangana",
+    "pincode": "502278",
+    "country": "India"
+  },
+  "hours": "6:00 AM – 9:00 PM (Open all 7 days)",
+  "owner": "Khaja Mujahiduddin",
+  "founded": "2005",
+  "brands": ["Exide", "Amaron", "Powerzone"],
+  "lat": 17.8407281,
+  "lng": 78.686974,
+  "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3797.955346174484!2d78.6843991!3d17.8407281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcc8712fb1c61f3%3A0x95d3b7d12860f8b9!2sExide%20Care%20-%20Royal%20Batteries!5e0!3m2!1sen!2sin!4v1776021499134",
+  "social": {
+    "og_image": "/assets/og-image.jpg"
+  },
+  "aggregateRating": {
+    "ratingValue": "4.8",
+    "reviewCount": "247"
+  }
+}

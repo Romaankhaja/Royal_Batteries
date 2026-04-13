@@ -1,0 +1,95 @@
+---
+interface ReviewItem {
+  name: string;
+  loc: string;
+  rating: number;
+  text: string;
+  initials: string;
+}
+const reviews: ReviewItem[] = [
+  {
+    name: 'Ramesh Reddy',
+    loc: 'Gajwel',
+    rating: 5,
+    text: 'My car died near Gajwel bus stand. Called Royal Batteries and within 20 minutes a technician arrived and replaced the battery on the spot. Exide battery — perfect fit. Best battery shop in Gajwel!',
+    initials: 'RR',
+  },
+  {
+    name: 'Srinivas Yadav',
+    loc: 'Siddipet',
+    rating: 5,
+    text: 'Ordered an inverter battery for my home in Siddipet. Same-day delivery, installed properly, and the price was exactly as quoted. No hidden charges. Highly recommend Royal Batteries for anyone in Siddipet district.',
+    initials: 'SY',
+  },
+  {
+    name: 'Lakshmi Narayana',
+    loc: 'Dubbak',
+    rating: 5,
+    text: 'Bought an Amaron battery for my Maruti Ertiga. The team at Royal Batteries was very knowledgeable — they checked the alternator too and confirmed it was working fine. Good service, warranty card given.',
+    initials: 'LN',
+  },
+  {
+    name: 'Venkat Reddy',
+    loc: 'Wargal',
+    rating: 5,
+    text: 'Wargal to Gajwel is 17 km but they delivered my Exide InvaTubular 150AH without any delivery charges. The inverter battery is working great — already saved us during three power cuts this week!',
+    initials: 'VR',
+  },
+  {
+    name: 'Priya Sharma',
+    loc: 'Kothaguda',
+    rating: 5,
+    text: 'Emergency situation — bike battery dead early morning. Called Royal Batteries and they brought a replacement within 30 minutes even to our village. Very professional and genuine pricing. 5 stars!',
+    initials: 'PS',
+  },
+  {
+    name: 'Mohammed Farhan',
+    loc: 'Toopran',
+    rating: 5,
+    text: 'Best battery service in the Gajwel–Toopran area. They have the EXIDE CARE certification which gives confidence on genuineness. Bought car battery for my Creta — good price, warranty maintained.',
+    initials: 'MF',
+  },
+];
+---
+<section class="section section-dark" aria-labelledby="reviews-heading">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 48px;">
+      <div class="section-tag section-tag-dark">⭐ Customer Reviews</div>
+      <h2 id="reviews-heading" class="section-title" style="color:#fff;">
+        Trusted by 5,000+ Customers Across Telangana
+      </h2>
+      <p class="section-sub section-sub-light">
+        Real reviews from car and bike owners in Gajwel, Siddipet, Medak and surrounding villages
+      </p>
+
+      <!-- Aggregate rating display -->
+      <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-top:20px;">
+        <div style="font-size:3rem; font-weight:800; color:#fff; line-height:1;">4.8</div>
+        <div>
+          <div style="color:#F59E0B; font-size:1.3rem; letter-spacing:3px;">★★★★★</div>
+          <div style="color:rgba(255,255,255,0.5); font-size:0.85rem;">247 Google Reviews</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      {reviews.map(review => (
+        <article class="review-card" itemscope itemtype="https://schema.org/Review">
+          <div class="review-stars" aria-label={`${review.rating} stars`}>
+            {'★'.repeat(review.rating)}
+          </div>
+          <p class="review-text" itemprop="reviewBody">"{review.text}"</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">{review.initials}</div>
+            <div>
+              <div class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <span itemprop="name">{review.name}</span>
+              </div>
+              <div class="review-loc">{review.loc}</div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

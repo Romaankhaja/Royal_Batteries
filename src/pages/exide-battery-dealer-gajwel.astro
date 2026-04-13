@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+import locations from '../data/locations.json';
+import FAQSection from '../components/FAQSection.astro';
+import LocationGrid from '../components/LocationGrid.astro';
+
+const allAreas = locations.slice(0, 10).map(l => ({ name: l.name, slug: l.slug }));
+
+const faqs = [
+  { q: 'Is Royal Batteries an official Exide CARE dealer?', a: 'Yes! We are an authorized Exide CARE outlet. This means we are directly certified by Exide to sell genuine products and process warranty claims locally.' },
+  { q: 'Can I claim Exide warranty at your shop if I bought it elsewhere?', a: 'Yes, as an Exide CARE dealer, we can assist in processing valid manufacturer warranties for Exide batteries, subject to verification and policy.' }
+];
+---
+<BaseLayout
+  title="Exide Battery Dealer Gajwel | Authorized Exide CARE Shop"
+  description="Official Exide Battery Dealer in Gajwel, Telangana. Visit Royal Batteries for genuine Exide car, bike, and inverter batteries. Authorized Exide CARE service center. Call 9397617823."
+  canonical="/exide-battery-dealer-gajwel"
+  breadcrumbs={[{ name: 'Exide Dealer Gajwel', url: '/exide-battery-dealer-gajwel' }]}
+>
+  <div class="hero-inner-page">
+    <div class="container">
+      <h1 class="page-h1">Official Exide Battery Dealer in Gajwel — Royal Batteries</h1>
+      <p class="page-sub">Exide CARE Authorized Partner. Your one-stop shop for genuine Exide technology, certified installation, and local warranty support.</p>
+      <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+        <a href={`tel:${site.phone}`} class="btn btn-primary">📞 Call {site.phoneDisplay}</a>
+        <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp Inquiry</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-section" style="max-width:840px;">
+        <h2>Gajwel's Premier Exide CARE Outlet</h2>
+        <p>Looking for an official Exide battery dealer in Gajwel? Royal Batteries is the region's trusted Exide CARE partner. We don't just sell batteries; we provide certified power solutions backed by 20+ years of automotive expertise.</p>
+        
+        <h3>The Exide CARE Advantage</h3>
+        <ul>
+          <li><strong>Direct Sourcing:</strong> Every battery comes directly from Exide warehouses — no risk of duplicates.</li>
+          <li><strong>Latest Stock:</strong> We maintain high inventory turnover to ensure you get the freshest manufactured batteries.</li>
+          <li><strong>Digital Warranty:</strong> We assist in registering your battery for Exide's paperless Paperless Warranty system.</li>
+          <li><strong>Professional Equipment:</strong> We use authorized Exide testers for accurate health diagnostic of your current battery.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LocationGrid areas={allAreas} title="Serving the Whole Region" />
+  <FAQSection faqs={faqs} title="Dealer FAQs" />
+</BaseLayout>

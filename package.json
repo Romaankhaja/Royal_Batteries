@@ -1,19 +1,16 @@
 {
   "name": "royal-batteries",
-  "version": "1.0.0",
-  "description": "Premium EXIDE CARE Battery Shop Website",
-  "main": "index.html",
+  "type": "module",
+  "version": "2.0.0",
+  "description": "Royal Batteries — Exide Authorized Battery Dealer in Gajwel, Telangana",
   "scripts": {
-    "start": "npx http-server ./",
-    "dev": "npx http-server ./",
-    "check": "echo \"Running static validation...\" && echo \"Done.\"",
-    "build": "echo \"Static site: no build required.\""
+    "dev": "node scripts/prebuild.js && astro dev",
+    "build": "node scripts/prebuild.js && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "keywords": [
-    "battery",
-    "exide",
-    "gajwel"
-  ],
-  "author": "Royal Batteries",
-  "license": "ISC"
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.0.0"
+  }
 }

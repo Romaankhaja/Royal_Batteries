@@ -1,0 +1,558 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ReviewsSection from '../components/ReviewsSection.astro';
+import LocationGrid from '../components/LocationGrid.astro';
+import site from '../data/site.json';
+import locations from '../data/locations.json';
+import blog from '../data/blog.json';
+
+const gajwelLocations = locations.filter(l => l.belt === 'Gajwel').map(l => ({ name: l.name, slug: l.slug }));
+const siddipetLocations = locations.filter(l => l.belt === 'Siddipet').map(l => ({ name: l.name, slug: l.slug }));
+const medakLocations = locations.filter(l => (l.belt === 'Medak' || l.belt === 'Toopran')).map(l => ({ name: l.name, slug: l.slug }));
+
+const recentPosts = blog.slice(0, 3);
+
+const homeFaqs = [
+  {
+    q: 'Is Royal Batteries an authorized Exide dealer in Gajwel?',
+    a: 'Yes. Royal Batteries is an Exide CARE Authorized Dealer in Gajwel, Siddipet district, Telangana. We stock the complete Exide range including Mileage, Matrix Pro, InvaTubular, and Powerzone with full manufacturer warranty.',
+  },
+  {
+    q: 'Do you provide battery delivery outside Gajwel?',
+    a: 'Yes! We deliver batteries to a 50+ km radius covering Siddipet, Medak, Dubbak, Toopran, Wargal, Pragnapur, and 30+ surrounding villages. Same-day delivery available for most areas. Call 9397617823.',
+  },
+  {
+    q: 'What types of batteries do you stock?',
+    a: 'We stock car batteries, bike/two-wheeler batteries, inverter batteries (tubular and flat plate), tractor batteries, and commercial vehicle batteries from Exide, Amaron, and Powerzone brands.',
+  },
+  {
+    q: 'Do you offer free battery testing in Gajwel?',
+    a: 'Yes! We offer free battery health checks for all vehicles. Bring your car or bike to our showroom opposite Munsif Court, Gajwel, and we will test voltage, CCA, and state of health with professional diagnostic equipment.',
+  },
+  {
+    q: 'What are your working hours?',
+    a: `Royal Batteries is open ${site.hours}. We are open on all days including Sundays and public holidays to serve emergency battery needs.`,
+  },
+];
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Battery Products at Royal Batteries Gajwel',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@type': 'Product',
+        name: 'Exide Mileage Car Battery',
+        description: 'Exide Mileage series car batteries for hatchbacks and sedans. Available in 32AH–88AH. Authorized dealer in Gajwel.',
+        brand: { '@type': 'Brand', name: 'Exide' },
+        offers: { '@type': 'Offer', priceCurrency: 'INR', priceRange: '₹2800 - ₹5500', availability: 'https://schema.org/InStock' },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      item: {
+        '@type': 'Product',
+        name: 'Amaron BXLife Car Battery',
+        description: 'Amaron BXLife zero-maintenance car battery with 60-month warranty. Available for all car models. Delivery across Siddipet, Medak.',
+        brand: { '@type': 'Brand', name: 'Amaron' },
+        offers: { '@type': 'Offer', priceCurrency: 'INR', priceRange: '₹3200 - ₹8000', availability: 'https://schema.org/InStock' },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      item: {
+        '@type': 'Product',
+        name: 'Exide InvaTubular Inverter Battery',
+        description: 'Exide InvaTubular tall tubular inverter battery (100AH–200AH) for home and office backup power. Ideal for frequent power cuts in Telangana villages.',
+        brand: { '@type': 'Brand', name: 'Exide' },
+        offers: { '@type': 'Offer', priceCurrency: 'INR', priceRange: '₹7500 - ₹15500', availability: 'https://schema.org/InStock' },
+      },
+    },
+  ],
+};
+
+import { Image } from "astro:assets";
+import heroImg from '../../public/assets/images/battery-workshop-gajwel.webp';
+import servicesImg from '../../public/assets/images/battery-service-technician-gajwel.webp';
+import aboutImg from '../../public/assets/images/battery-expert-owner-royal-batteries.webp';
+import productsImg from '../../public/assets/images/battery_shelf.webp';
+import deliveryImg from '../../public/assets/images/delivery rider at royal batteries.webp';
+import storeImg from '../../public/assets/images/royal batteries storefront.webp';
+---
+<BaseLayout
+  title="Battery Shop in Gajwel | Car, Bike & Inverter Batteries | Royal Batteries EXIDE CARE"
+  description="Royal Batteries — Gajwel's #1 Exide CARE authorized dealer. Car, bike & inverter batteries with same-day delivery across Siddipet, Medak & 50 km radius. Call 9397617823."
+  canonical="/"
+  schema={productSchema}
+>
+
+  <!-- ====== HERO ====== -->
+  <div class="hero-dark">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-badge">
+            ⚡ Exide CARE Authorized Dealer — Gajwel
+          </div>
+          <h1 class="hero-h1">
+            Best Battery Shop in <span>Gajwel</span> – <br />
+            Car, Bike &amp; Inverter Batteries
+          </h1>
+          <p class="hero-sub">
+            Looking for a reliable battery shop near me? We are your trusted local expert for <a href="/car-batteries" style="color:var(--red); text-decoration:underline;">car battery replacement</a>, <a href="/bike-batteries" style="color:var(--red); text-decoration:underline;">bike batteries</a>, and <a href="/inverter-batteries" style="color:var(--red); text-decoration:underline;">inverter batteries</a> in <strong>Gajwel, Siddipet, Medak and Toopran</strong>. Get instant doorstep service and genuine Exide products.
+          </p>
+          <div class="hero-actions">
+            <a href={`tel:${site.phone}`} class="btn btn-primary btn-lg">
+              📞 Call Now – Fast Battery Replacement
+            </a>
+            <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+              💬 WhatsApp for Best Price
+            </a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item"><strong>25+</strong> Years Experience</div>
+            <div class="trust-item"><strong>5,000+</strong> Customers</div>
+            <div class="trust-item"><strong>50 km</strong> Delivery Radius</div>
+            <div class="trust-item"><strong>4.8★</strong> Google Rating</div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <Image src={heroImg} alt="Car battery replacement in Gajwel Telangana" width={600} height={450} loading="eager" fetchpriority="high" widths={[400, 800, 1200]} sizes="(max-width: 768px) 100vw, 50vw" style="border-radius: var(--radius-xl); box-shadow: 0 40px 80px rgba(0,0,0,0.4); width: 100%; object-fit: cover; aspect-ratio: 4/3;" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== TRUST STRIP ====== -->
+  <div class="section-sm" style="background: var(--red);">
+    <div class="container">
+      <div class="stats-row" style="color:#fff;">
+        {[
+          { icon: '🏆', label: 'Exide CARE Certified', sub: 'Authorized Dealer' },
+          { icon: '🚗', label: 'All Vehicle Types', sub: 'Car · Bike · Tractor' },
+          { icon: '🚚', label: 'Same-Day Delivery', sub: '50 km radius' },
+          { icon: '🔧', label: 'Free Installation', sub: 'At your doorstep' },
+        ].map(({ icon, label, sub }) => (
+          <div>
+            <div style="font-size:1.8rem; line-height:1; margin-bottom:6px;">{icon}</div>
+            <strong style="font-size:0.95rem;">{label}</strong>
+            <div style="font-size:0.8rem; opacity:0.8; margin-top:2px;">{sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- ====== SERVICES ====== -->
+  <section class="section" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:48px;">
+        <div class="section-tag">Our Products & Services</div>
+        <h2 id="services-heading" class="section-title">Batteries for Every Need</h2>
+        <p class="section-sub">
+          From small hatchbacks to heavy commercial vehicles — we stock and deliver the right battery.
+        </p>
+      </div>
+
+      <div class="split-grid-reverse" style="align-items:start; gap:48px;">
+        <div style="display:flex; flex-direction:column; gap:24px;">
+           <Image
+            src={productsImg}
+            alt="Exide and Amaron battery products on shelf in Gajwel store"
+            loading="lazy"
+            width={400}
+            height={500}
+            style="border-radius: var(--radius-lg); box-shadow: var(--shadow); width: 100%; height: auto; object-fit: cover;"
+          />
+           <Image
+            src={servicesImg}
+            alt="Technician checking and replacing a car battery in Siddipet area"
+            loading="lazy"
+            width={400}
+            height={300}
+            style="border-radius: var(--radius-lg); box-shadow: var(--shadow); width: 100%; height: auto; object-fit: cover;"
+          />
+        </div>
+        <div class="service-grid" style="grid-template-columns: repeat(2,1fr);">
+
+        {[
+          {
+            icon: '🚗',
+            title: 'Car Batteries',
+            desc: 'Exide Mileage, Amaron BXLife, and Powerzone for all car models — hatchbacks to SUVs. Free installation, warranty, old battery exchange.',
+            link: '/car-batteries',
+            linkText: 'View Car Batteries',
+          },
+          {
+            icon: '🏍️',
+            title: 'Bike Batteries',
+            desc: 'VRLA and conventional batteries for motorcycles and scooters. Hero, Honda, TVS, Bajaj, Royal Enfield — all models covered.',
+            link: '/bike-batteries',
+            linkText: 'View Bike Batteries',
+          },
+          {
+            icon: '⚡',
+            title: 'Inverter Batteries',
+            desc: 'Exide InvaTubular and Amaron tubular batteries for village power backup. 100 AH to 200 AH with delivery and installation.',
+            link: '/inverter-batteries',
+            linkText: 'View Inverter Batteries',
+          },
+          {
+            icon: '🚚',
+            title: 'Doorstep Delivery',
+            desc: 'Battery delivered to your home, farm, or roadside anywhere within 50 km of Gajwel. Call before 6 PM for same-day delivery.',
+            link: '/battery-delivery-service',
+            linkText: 'Delivery Info',
+          },
+          {
+            icon: '🔍',
+            title: 'Free Diagnostics',
+            desc: 'Bring your vehicle in and we will test battery voltage, CCA, charging system, and alternator — all for free, no obligation.',
+            link: '/about-authorized-exide-dealer',
+            linkText: 'Learn More',
+          },
+          {
+            icon: '🏆',
+            title: 'EXIDE CARE Warranty',
+            desc: 'As an authorized Exide dealer, all Exide batteries come with factory warranty. We handle warranty claims on your behalf.',
+            link: '/about-authorized-exide-dealer',
+            linkText: 'About Our Warranty',
+          },
+        ].map(s => (
+          <div class="card">
+            <div class="card-icon" aria-hidden="true">{s.icon}</div>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+            <a href={s.link} class="blog-read-link" style="margin-top:16px; display:inline-flex;">
+              {s.linkText} →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- ====== EXIDE AUTHORIZED BADGE & ABOUT ====== -->
+  <section class="section section-light" aria-labelledby="authorize-heading">
+    <div class="container">
+      <div class="split-grid">
+        <div>
+          <div class="section-tag">Trust &amp; Authority</div>
+          <h2 id="authorize-heading" class="section-title">Authorized Exide Dealer &amp; Battery Experts</h2>
+          <ul style="list-style:none; margin: 0 0 28px 0; padding:0; display:flex; flex-direction:column; gap:16px; color:var(--text); font-size:1.05rem;">
+            <li style="display:flex; align-items:start; gap:12px;">
+              <span style="color:var(--green); font-size:1.4rem; line-height:1;">✓</span> 
+              <span><strong>100% Genuine Products:</strong> As an Exide CARE Authorized Dealer, we guarantee authentic batteries with valid serial numbers. No fake invoices or duplicate batteries.</span>
+            </li>
+            <li style="display:flex; align-items:start; gap:12px;">
+              <span style="color:var(--green); font-size:1.4rem; line-height:1;">✓</span> 
+              <span><strong>Full Manufacturer Warranty:</strong> Every battery comes with a registered national warranty, and we handle all Exide claim processes on your behalf.</span>
+            </li>
+            <li style="display:flex; align-items:start; gap:12px;">
+              <span style="color:var(--green); font-size:1.4rem; line-height:1;">✓</span> 
+              <span><strong>25+ Years Experience:</strong> Trusted by 5,000+ customers across the Gajwel, Siddipet, and Medak districts for honest pricing and expert diagnostics.</span>
+            </li>
+          </ul>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <a href="/about-authorized-exide-dealer" class="btn btn-primary">Learn About Us</a>
+            <a href={`tel:${site.phone}`} class="btn btn-outline">📞 Call Now – Fast Battery Replacement</a>
+          </div>
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top: 32px;">
+            {[
+              { num: '25+', label: 'Years in Business' },
+              { num: '5,000+', label: 'Batteries Sold' },
+              { num: '4.8★', label: 'Google Rating' },
+              { num: 'Fast', label: 'Delivery Coverage' },
+            ].map(({ num, label }) => (
+              <div class="card" style="text-align:center; padding:20px 16px;">
+                <div style="font-size:1.8rem; font-weight:800; color:var(--red); line-height:1;">{num}</div>
+                <div style="font-size:0.85rem; color:var(--muted); margin-top:8px;">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+           <Image
+            src={aboutImg}
+            alt="Owner of Royal Batteries Gajwel authorized Exide CARE dealer"
+            loading="lazy"
+            width={500}
+            height={600}
+            style="border-radius: var(--radius-xl); outline: 1px solid var(--border); box-shadow: var(--shadow-md); width: 100%; height: auto; object-fit: cover;"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+  <!-- ====== FAST DELIVERY ====== -->
+  <section class="section" aria-labelledby="delivery-heading">
+    <div class="container">
+      <div class="split-grid-reverse">
+        <div>
+           <Image
+            src={deliveryImg}
+            alt="Battery delivery rider heading to Medak or Siddipet"
+            loading="lazy"
+            width={500}
+            height={500}
+            style="border-radius: var(--radius-xl); box-shadow: var(--shadow-md); width: 100%; height: auto; object-fit: cover;"
+          />
+        </div>
+        <div>
+          <div class="section-tag">Speed &amp; Convenience</div>
+          <h2 id="delivery-heading" class="section-title">Instant Doorstep Battery Delivery</h2>
+          <p style="color:var(--text); margin-bottom:20px; line-height:1.75; font-size: 1.05rem;">
+            Stuck with a dead battery? Looking for a car battery repair near me? We offer lightning-fast, <a href="/battery-delivery-service" style="color:var(--red); text-decoration:underline;">doorstep battery delivery</a> and installation across Gajwel, Siddipet, Medak, and within a 50+ km radius.
+          </p>
+          <ul style="list-style:none; margin: 0 0 28px 0; padding:0; display:flex; flex-direction:column; gap:12px;">
+            <li style="display:flex; align-items:center; gap:10px;"><span style="color:var(--green); font-size:1.2rem;">✓</span> Same-day delivery for most locations</li>
+            <li style="display:flex; align-items:center; gap:10px;"><span style="color:var(--green); font-size:1.2rem;">✓</span> Free professional installation at your home/roadside</li>
+            <li style="display:flex; align-items:center; gap:10px;"><span style="color:var(--green); font-size:1.2rem;">✓</span> Instant payment & warranty registration</li>
+          </ul>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <a href={`tel:${site.phone}`} class="btn btn-primary">Get Instant Battery Replacement</a>
+            <a href={site.whatsapp} class="btn btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== MAP + NAP ====== -->
+  <section class="section" aria-labelledby="location-heading">
+    <div class="container">
+      <div class="split-grid-reverse" style="align-items:start; gap:48px;">
+        <div>
+          <div class="section-tag">Find Us</div>
+          <h2 id="location-heading" class="section-title">Visit Our Gajwel Showroom</h2>
+          <div class="nap-block" style="margin-top:28px;">
+            <div class="nap-item">
+              <div class="nap-icon">📍</div>
+              <div class="nap-text">
+                <strong>Address</strong>
+                <span>{site.address.street}, {site.address.city}, {site.address.district} — {site.address.pincode}</span>
+              </div>
+            </div>
+            <div class="nap-item">
+              <div class="nap-icon">📞</div>
+              <div class="nap-text">
+                <strong>Phone</strong>
+                <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+              </div>
+            </div>
+            <div class="nap-item">
+              <div class="nap-icon">🕐</div>
+              <div class="nap-text">
+                <strong>Hours</strong>
+                <span>{site.hours}</span>
+              </div>
+            </div>
+            <div class="nap-item">
+              <div class="nap-icon">💬</div>
+              <div class="nap-text">
+                <strong>WhatsApp Orders</strong>
+                <a href={site.whatsapp} target="_blank" rel="noopener">Click to WhatsApp</a>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
+            <a href={`tel:${site.phone}`} class="btn btn-primary">📞 Call Now</a>
+            <a href={site.whatsapp} class="btn btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- Google Maps Embed -->
+        <div style="display:flex; flex-direction:column; gap:24px;">
+          <Image src={storeImg} alt="Royal Batteries shop front located opposite Munsif Court in Gajwel" loading="lazy" width={600} height={300} widths={[400, 800, 1200]} sizes="(max-width: 768px) 100vw, 50vw" style="border-radius: var(--radius-xl); box-shadow: var(--shadow); width: 100%; height: auto; object-fit: cover;" />
+        <div class="map-wrap">
+          <iframe
+            src={site.mapEmbed}
+            width="100%"
+            height="300"
+            loading="lazy"
+            style="border:0;"
+            title="Royal Batteries Gajwel - Google Maps Location (Opposite Munsif Court)"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ====== GEO-TARGETED LOCATION CLUSTERS ====== -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <div class="section-tag">Service Areas</div>
+        <h2 class="section-title">Hyper-Local Battery Coverage</h2>
+        <p class="section-sub">We serve every mandal and village in the Gajwel–Siddipet–Medak belt.</p>
+      </div>
+
+      <!-- Location Accordion (All Devices) -->
+      <div class="locations-accordion" style="max-width: 800px; margin: 0 auto;">
+        <div class="acc-item">
+          <button class="acc-btn" aria-expanded="false" aria-controls="acc-gajwel">
+            <span>Gajwel Belt ({gajwelLocations.length} locations)</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-content" id="acc-gajwel">
+            <div class="acc-content-inner">
+              <div class="acc-links">
+                {gajwelLocations.map(loc => (
+                  <a href={`/${loc.slug}`} class="acc-link">📍 Battery service in {loc.name}</a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn" aria-expanded="false" aria-controls="acc-siddipet">
+            <span>Siddipet Belt ({siddipetLocations.length} locations)</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-content" id="acc-siddipet">
+            <div class="acc-content-inner">
+              <div class="acc-links">
+                {siddipetLocations.map(loc => (
+                  <a href={`/${loc.slug}`} class="acc-link">📍 Battery service in {loc.name}</a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn" aria-expanded="false" aria-controls="acc-medak">
+            <span>Medak Belt ({medakLocations.length} locations)</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-content" id="acc-medak">
+            <div class="acc-content-inner">
+              <div class="acc-links">
+                {medakLocations.map(loc => (
+                  <a href={`/${loc.slug}`} class="acc-link">📍 Battery service in {loc.name}</a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Service Intent Links -->
+      <div class="card" style="margin-top:48px; padding:32px; background:var(--dark); color:#fff; border:none;">
+        <h3 style="color:#fff; margin-bottom:20px; text-align:center;">Quick SEO Service Links</h3>
+        <div class="village-grid" style="justify-content:center;">
+          <a href="/car-battery-near-me-gajwel" class="village-pill" style="background:rgba(255,255,255,0.1); color:#fff; border-color:rgba(255,255,255,0.2);">Car Battery Near Me (Gajwel)</a>
+          <a href="/bike-battery-near-me" class="village-pill" style="background:rgba(255,255,255,0.1); color:#fff; border-color:rgba(255,255,255,0.2);">Bike Battery Near Me</a>
+          <a href="/inverter-battery-siddipet-delivery" class="village-pill" style="background:rgba(255,255,255,0.1); color:#fff; border-color:rgba(255,255,255,0.2);">Inverter Battery (Siddipet)</a>
+          <a href="/exide-battery-dealer-gajwel" class="village-pill" style="background:rgba(255,255,255,0.1); color:#fff; border-color:rgba(255,255,255,0.2);">Exide Dealer Gajwel</a>
+          <a href="/battery-exchange-near-me" class="village-pill" style="background:rgba(255,255,255,0.1); color:#fff; border-color:rgba(255,255,255,0.2);">Battery Exchange Value</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== REVIEWS ====== -->
+  <ReviewsSection />
+
+  <!-- ====== BLOG PREVIEW ====== -->
+  <section class="section section-light" aria-labelledby="blog-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <div class="section-tag">Battery Knowledge</div>
+        <h2 id="blog-heading" class="section-title">Latest Battery Tips &amp; Guides</h2>
+        <p class="section-sub">Expert advice from 25+ years of battery experience in Telangana</p>
+      </div>
+      <div class="blog-grid">
+        {recentPosts.map(post => (
+          <article class="blog-card">
+            <div class="blog-card-body">
+              <div class="blog-cat">{post.category}</div>
+              <h3 class="blog-title">
+                <a href={`/blog/${post.slug}`}>{post.metaTitle.replace(' | Royal Batteries', '')}</a>
+              </h3>
+              <p class="blog-desc">{post.description}</p>
+              <div class="blog-meta">
+                <span>{post.readTime}</span>
+                <span>{new Date(post.date).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })}</span>
+              </div>
+              <a href={`/blog/${post.slug}`} class="blog-read-link" style="margin-top:14px; display:inline-flex;">
+                Read Guide →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div style="text-align:center; margin-top:32px;">
+        <a href="/blog" class="btn btn-outline">View All Battery Guides</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FAQ ====== -->
+  <FAQSection faqs={homeFaqs} title="FAQs — Royal Batteries Gajwel" />
+
+  <!-- ====== BOTTOM CTA ====== -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h2>Need a Battery Right Now?</h2>
+          <p>Call us or WhatsApp — we deliver across Gajwel, Siddipet, Medak and the entire 50 km radius. Same-day service guaranteed.</p>
+        </div>
+        <div class="cta-actions">
+          <a href={`tel:${site.phone}`} class="btn btn-outline-white btn-lg">📞 Call Now – Fast Battery Replacement</a>
+          <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">💬 WhatsApp for Best Price</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const accButtons = document.querySelectorAll('.acc-btn');
+
+    accButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        
+        // Close all accordions first (ensure only one is open)
+        accButtons.forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.classList.remove('active');
+          const content = document.getElementById(b.getAttribute('aria-controls'));
+          if (content) content.classList.remove('open');
+          const icon = b.querySelector('.acc-icon');
+          if (icon) icon.textContent = '+';
+        });
+
+        // Open the clicked one if it wasn't already open
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          btn.classList.add('active');
+          const content = document.getElementById(btn.getAttribute('aria-controls'));
+          if (content) content.classList.add('open');
+          const icon = btn.querySelector('.acc-icon');
+          if (icon) icon.textContent = '−'; // minus sign
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,177 @@
+---
+// src/layouts/BaseLayout.astro
+import site from '../data/site.json';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = '/assets/images/og-banner.webp',
+  schema,
+  breadcrumbs,
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = site.url;
+const pageUrl = canonical
+  ? `${siteUrl}${canonical}`
+  : `${siteUrl}${Astro.url.pathname}`;
+
+// Shared LocalBusiness schema
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'AutoPartsStore'],
+  name: site.siteName,
+  alternateName: 'Royal Batteries EXIDE CARE',
+  description: site.description,
+  url: siteUrl,
+  telephone: site.phone,
+  priceRange: '₹₹',
+  image: `${siteUrl}/assets/images/royal batteries storefront.webp`,
+  logo: `${siteUrl}/assets/logo.png`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    addressLocality: site.address.city,
+    addressRegion: site.address.state,
+    postalCode: site.address.pincode,
+    addressCountry: 'IN',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: site.lat, longitude: site.lng },
+  openingHoursSpecification: [{
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+    opens: '06:00',
+    closes: '21:00',
+  }],
+  areaServed: ['Gajwel','Siddipet','Medak','Pragnapur','Dubbak','Toopran','Wargal','Siddipet district','Medak district'],
+  hasMap: `https://maps.google.com/?q=${encodeURIComponent('Royal Batteries Gajwel Telangana')}`,
+  foundingDate: site.founded,
+  founder: { '@type': 'Person', name: site.owner },
+  brand: site.brands.map(b => ({ '@type': 'Brand', name: b })),
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: site.aggregateRating.ratingValue,
+    reviewCount: site.aggregateRating.reviewCount,
+    bestRating: '5',
+  },
+};
+
+const breadcrumbSchema = breadcrumbs ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+    ...breadcrumbs.map((b, i) => ({
+      '@type': 'ListItem',
+      position: i + 2,
+      name: b.name,
+      item: `${siteUrl}${b.url}`,
+    })),
+  ],
+} : null;
+
+const allSchemas = [
+  localBusinessSchema,
+  ...(schema ? (Array.isArray(schema) ? schema : [schema]) : []),
+  ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+];
+---
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'} />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={pageUrl} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Royal Batteries - Exide Authorized Dealer Gajwel" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:site_name" content="Royal Batteries" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Battery Shop in Gajwel | Royal Batteries Exide Dealer" />
+  <meta name="twitter:description" content="Exide & Amaron batteries in Gajwel, Siddipet & Medak. Same-day delivery + installation." />
+  <meta name="twitter:image" content="https://royalbatteries.netlify.app/assets/images/og-banner.webp" />
+
+  <!-- Mobile / PWA -->
+  <meta name="theme-color" content="#EE392B" />
+  <meta name="application-name" content="Royal Batteries" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/icon-192x192.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://maps.google.com" />
+
+  <!-- Schema Markup (JSON-LD) -->
+  {allSchemas.map(s => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))}
+</head>
+<body>
+  <Header />
+  <main id="main-content">
+    <slot />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+
+  <!-- Mobile sticky CTA bar -->
+  <div class="sticky-cta" aria-label="Quick contact">
+    <a href={`tel:${site.phone}`} class="sticky-call">📞 Call Now</a>
+    <a href={site.whatsapp} target="_blank" rel="noopener" class="sticky-wa">💬 WhatsApp</a>
+  </div>
+
+  <!-- Mobile menu toggle script (minimal, no libraries) -->
+  <script>
+    const ham = document.getElementById('hamburger');
+    const menu = document.getElementById('mobile-menu');
+    if (ham && menu) {
+      ham.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        ham.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      const closeMenu = () => {
+        menu.classList.remove('open');
+        ham.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      };
+      document.getElementById('mobile-close')?.addEventListener('click', closeMenu);
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+    }
+  </script>
+</body>
+</html>

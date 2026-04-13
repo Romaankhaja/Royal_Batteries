@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+import locations from '../data/locations.json';
+import FAQSection from '../components/FAQSection.astro';
+import LocationGrid from '../components/LocationGrid.astro';
+
+const gajwelBelt = locations.filter(l => l.belt === 'Gajwel').map(l => ({ name: l.name, slug: l.slug }));
+
+const faqs = [
+  { q: 'How long does car battery delivery take in Gajwel?', a: 'Within Gajwel town, we deliver and install in 15–30 minutes. For surrounding villages, it takes 30–45 minutes.' },
+  { q: 'Do you charge for car battery installation?', a: 'No, installation is free when you buy a new battery from Royal Batteries. We also provide free alternator/charging system checks.' },
+  { q: 'Which car battery is best for my vehicle?', a: 'As an authorized Exide dealer, we recommend Exide Mileage for hatchbacks and Exide Matrix for SUVs. We also stock Amaron BXLife. Call us with your car model for specific advice.' }
+];
+---
+<BaseLayout
+  title="Car Battery Near Me Gajwel | Exide CARE Authorized Dealer"
+  description="Stuck with a dead car battery in Gajwel? Royal Batteries is the #1 car battery dealer in Gajwel. Free home installation, genuine Exide & Amaron. Call 9397617823."
+  canonical="/car-battery-near-me-gajwel"
+  breadcrumbs={[{ name: 'Car Battery Near Me', url: '/car-battery-near-me-gajwel' }]}
+>
+  <div class="hero-inner-page">
+    <div class="container">
+      <h1 class="page-h1">Car Battery Near Me in Gajwel — Fast Delivery & Installation</h1>
+      <p class="page-sub">Authorized Exide CARE dealer. Same-day fitting at your doorstep or roadside breakdown service in Gajwel & 50km radius.</p>
+      <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+        <a href={`tel:${site.phone}`} class="btn btn-primary">📞 Call {site.phoneDisplay}</a>
+        <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp Order</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-section" style="max-width:840px;">
+        <h2>Gajwel's Most Trusted Car Battery Shop</h2>
+        <p>If you're searching for "car battery near me" in Gajwel, Royal Batteries is your nearest authorized Exide CARE dealer. We understand that a dead battery can ruin your day, which is why we offer a 30-minute doorstep delivery and installation guarantee within Gajwel town.</p>
+        
+        <h3>Why Choose Us for Your Car Battery?</h3>
+        <ul>
+          <li><strong>Authorized Exide CARE Dealer:</strong> Get 100% genuine batteries with official warranty.</li>
+          <li><strong>Free Installation:</strong> Our expert technicians install your battery safely at your home or office.</li>
+          <li><strong>Best Prices in Siddipet District:</strong> Transparent pricing with old battery exchange discounts.</li>
+          <li><strong>Wide Selection:</strong> Stocking Exide, Amaron, and Powerzone for all car models from Maruti Alto to Toyota Fortuner.</li>
+        </ul>
+
+        <h2>Roadside Breakdown Service in Gajwel</h2>
+        <p>Stuck on the road? We provide emergency battery jump-starts and on-the-spot battery replacement across Gajwel, Pragnapur, Markook, and surrounding highways. Just call 9397617823 and give us your location.</p>
+      </div>
+    </div>
+  </section>
+
+  <LocationGrid areas={gajwelBelt} title="Serving These Areas Near Gajwel" />
+
+  <FAQSection faqs={faqs} title="Car Battery FAQs — Gajwel" />
+</BaseLayout>

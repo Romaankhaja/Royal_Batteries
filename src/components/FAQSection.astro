@@ -1,0 +1,47 @@
+---
+// FAQSection.astro - renders FAQ with FAQPage schema
+interface FAQItem {
+  q: string;
+  a: string;
+}
+interface Props {
+  faqs: FAQItem[];
+  title?: string;
+  dark?: boolean;
+}
+const { faqs, title = 'Frequently Asked Questions', dark = false } = Astro.props;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.a,
+    },
+  })),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section class={`section ${dark ? 'section-dark-2' : 'section-light'}`} aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 40px;">
+      <div class={`section-tag ${dark ? 'section-tag-dark' : ''}`}>FAQ</div>
+      <h2 id="faq-heading" class="section-title" style={dark ? 'color:#fff;' : ''}>{title}</h2>
+    </div>
+
+    <div class="faq-list" style="margin: 0 auto;">
+      {faqs.map((faq, i) => (
+        <div class="faq-item">
+          <details open={i === 0}>
+            <summary>{faq.q}</summary>
+            <div class="faq-answer">{faq.a}</div>
+          </details>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

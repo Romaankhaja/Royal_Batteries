@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
+import LocationGrid from '../components/LocationGrid.astro';
+import ReviewsSection from '../components/ReviewsSection.astro';
+import site from '../data/site.json';
+import locations from '../data/locations.json';
+
+export async function getStaticPaths() {
+  return locations.map(location => ({
+    params: { slug: location.slug },
+    props: { location },
+  }));
+}
+
+const { location } = Astro.props;
+
+// Filter nearby areas within the same belt or mandal
+const nearbyFromBelt = locations
+  .filter(l => l.belt === location.belt && l.slug !== location.slug)
+  .slice(0, 8)
+  .map(l => ({ name: l.name, slug: l.slug }));
+
+// SEO Content Generation (Programmatic expansion to 600-900 words)
+const isCity = location.type === 'city';
+const isMandal = location.type === 'mandal';
+
+const title = `${location.keyword_target || 'Battery Shop in ' + location.name} | Exide CARE Authorized Dealer`;
+const description = `Looking for a ${location.name} battery shop? Royal Batteries is the #1 Exide authorized dealer serving ${location.name} (${location.district} district). Free home delivery in ${location.deliveryTime}. Call 9397617823.`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  'name': `Royal Batteries - ${location.name} Authorized Dealer`,
+  'image': `${site.url}/assets/images/royal-batteries-showroom-exide-care.png`,
+  'telephone': site.phone,
+  'url': `${site.url}/${location.slug}`,
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': site.address.street,
+    'addressLocality': site.address.city,
+    'addressRegion': site.address.state,
+    'postalCode': site.address.zip,
+    'addressCountry': 'IN'
+  },
+  'geo': {
+    '@type': 'GeoCoordinates',
+    'latitude': site.address.lat,
+    'longitude': site.address.lng
+  },
+  'openingHoursSpecification': {
+    '@type': 'OpeningHoursSpecification',
+    'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    'opens': '06:00',
+    'closes': '21:00'
+  },
+  'areaServed': {
+    '@type': 'City',
+    'name': location.name
+  }
+};
+
+const faqs = location.customFaqs || [
+  { 
+    q: `How long does it take for battery delivery in ${location.name}?`, 
+    a: `For ${location.name}, our typical delivery and installation window is ${location.deliveryTime}. We dispatch from our Gajwel hub as soon as your order is confirmed.` 
+  },
+  { 
+    q: `Do you provide inverter battery installation in ${location.name}?`, 
+    a: `Yes, we provide free doorstep installation for all car, bike, and inverter batteries in ${location.name}. Our technicians will ensure your backup system is configured correctly.` 
+  },
+  {
+    q: `Which is the best battery for my car in ${location.name}?`,
+    a: `In the ${location.district} region, we recommend Exide Mileage or Amaron BXLife for most passenger cars. These batteries are designed for the local climate and rough roads. Call 9397617823 for a specific model recommendation.`
+  }
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={`/${location.slug}`}
+  schema={schema}
+  breadcrumbs={[{ name: location.name, url: `/${location.slug}` }]}
+>
+  <div class="hero-inner-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">›</span><span aria-current="page">{location.name}</span>
+      </nav>
+      <h1 class="page-h1">{location.keyword_target || 'Battery Shop in ' + location.name} — Authorized Exide CARE Dealer</h1>
+      <p class="page-sub">
+        Serving {location.name} ({location.mandal} Mandal) and surrounding villages. 
+        Distance: {location.distanceKm} km from Gajwel · Delivery: {location.deliveryTime} · Free Installation.
+      </p>
+      <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+        <a href={`tel:${site.phone}`} class="btn btn-primary">📞 Call {site.phoneDisplay}</a>
+        <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp Order</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div style="display:grid; grid-template-columns: 1.5fr 1fr; gap:60px; align-items:start;">
+        
+        <div class="content-section">
+          <h2>The #1 {location.name} Battery Shop Delivery & Service</h2>
+          <p>If you are looking for a reliable battery shop in {location.name} or near {location.landmarks?.[0] || location.mandal}, Royal Batteries is your authorized destination. As an Exide CARE Certified dealer, we have been serving the {location.belt} belt for over 20 years, providing genuine batteries for cars, bikes, and home inverters.</p>
+          
+          <p>Residents and business owners in {location.name} don't need to travel far for a battery replacement. Whether you are at {location.landmarks?.[0]} or near the {location.landmarks?.[1] || 'mandal office'}, our mobile delivery unit can reach you within {location.deliveryTime}. We specialize in high-performance power solutions tailored for the local Telangana climate.</p>
+
+          <h3>Why {location.name} Residents Trust Royal Batteries</h3>
+          <p>We believe in building long-term relationships with our customers in {location.district} district. When you buy from us, you aren't just getting a product; you are getting a trust guarantee that includes:</p>
+          <ul>
+            <li><strong>Official Warranty Support:</strong> Being an authorized dealer, we process Exide and Amaron warranties locally at our Gajwel hub, so you don't have to call customer care centers.</li>
+            <li><strong>Authentic Stock:</strong> Every battery comes with a manufacturing date and bill, ensuring you never receive a refurbished or duplicate product in {location.name}.</li>
+            <li><strong>Free Diagnostics:</strong> Before selling a new battery, we test your current one for free to see if it just needs a recharge rather than a full replacement.</li>
+          </ul>
+
+          <h3>Car & SUV Batteries in {location.name}</h3>
+          <p>The roads in and around {location.name} can be challenging for vehicle batteries. We stock heavy-duty batteries for all popular models including Maruti Swift, Hyundai Creta, Mahindra Bolero, and Toyota Innova. Our batteries offer high cranking power and vibration resistance, ensuring your vehicle starts every time.</p>
+
+          <h3>Agricultural & Inverter Solutions</h3>
+          {location.belt === 'Gajwel' || location.belt === 'Medak' ? (
+            <p>Farmers in {location.name} and surrounding mandals rely heavily on tractors and farm equipment. We stock 80Ah to 180Ah batteries specifically for Mahindra, John Deere, and Sonalika tractors. For homes, our tubular inverter batteries like Exide InvaTubular provide uninterrupted power backup during the frequent 4-8 hour power cuts experienced in rural {location.district}.</p>
+          ) : (
+            <p>For homes and small businesses in {location.name}, we provide high-performance inverter battery setups. Our tall tubular batteries are the best choice for this region, offering 4-5 years of trouble-free service with minimal water maintenance.</p>
+          )}
+
+          <h3>Professional Battery Fitting in {location.name}</h3>
+          <p>Our service doesn't end at the sale. Our technician will come to your location in {location.name}, remove your old dead battery, clean the battery terminals, apply petroleum jelly to prevent corrosion, and securely install the new unit. We also check your vehicle's alternator voltage to ensure the new battery gets charged correctly.</p>
+
+          <h3>Common Battery Issues in {location.name}</h3>
+          <p>Telangana's intense summer heat can cause battery electrolyte to evaporate quickly in {location.name}. If you notice slow cranking, dimming headlights, or a "clicking" sound when starting, it's time for a health check. Visit our showroom near Munsif Court, Gajwel, or call us for a home visit in {location.name}.</p>
+        </div>
+
+        <aside style="position:sticky; top:80px;">
+          <div class="card" style="padding:32px;">
+            <h3 style="margin-bottom:16px;">Quick Delivery to {location.name}</h3>
+            <div style="font-size:0.9rem; color:var(--muted); margin-bottom:24px; display:flex; flex-direction:column; gap:12px;">
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:8px;">
+                <span>Distance</span> <strong>{location.distanceKm} km</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:8px;">
+                <span>Delivery Time</span> <strong>{location.deliveryTime}</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:8px;">
+                <span>Area Type</span> <strong style="text-transform:capitalize;">{location.type}</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:8px;">
+                <span>District</span> <strong>{location.district}</strong>
+              </div>
+            </div>
+            
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <a href={`tel:${site.phone}`} class="btn btn-primary" style="justify-content:center;">📞 Call {site.phoneDisplay}</a>
+              <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp" style="justify-content:center;">💬 WhatsApp Us</a>
+            </div>
+
+            <div style="margin-top:20px; font-size:0.8rem; color:var(--muted); display:flex; flex-direction:column; gap:8px;">
+              <span>✅ 100% Genuine Exide & Amaron</span>
+              <span>✅ Free Doorstep Installation</span>
+              <span>✅ Best Price Guarantee</span>
+              <span>✅ Established {site.founded}</span>
+            </div>
+          </div>
+
+          <div class="card" style="padding:24px; margin-top:24px; background:var(--light); border:none;">
+            <h4 style="font-size:0.9rem; margin-bottom:12px;">Local Landmarks We Serve:</h4>
+            <div class="village-grid" style="grid-template-columns: 1fr;">
+              {location.landmarks?.map(l => (
+                <span style="font-size:0.82rem; color:var(--text); padding:4px 0; display:block; border-bottom:1px solid rgba(0,0,0,0.05);">📍 {l}</span>
+              ))}
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <ReviewsSection />
+
+  <section class="section-sm" style="background:var(--light);">
+    <div class="container">
+      <LocationGrid areas={nearbyFromBelt} title={`Nearby Areas in ${location.belt} Belt`} dark={false} />
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} title={`Frequently Asked Questions - ${location.name}`} />
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h2>Need a Battery in {location.name}?</h2>
+          <p>Don't stay stuck. Call Royal Batteries now for immediate delivery to any location in {location.name} or {location.mandal} Mandal.</p>
+        </div>
+        <div class="cta-actions">
+          <a href={`tel:${site.phone}`} class="btn btn-outline-white btn-lg">📞 {site.phoneDisplay}</a>
+          <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,63 @@
+---
+import site from '../data/site.json';
+import locations from '../data/locations.json';
+const priorityLocs = locations.filter(l => l.type === 'priority').slice(0, 8);
+---
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="/" aria-label="Royal Batteries Home">
+          <img src="/assets/logo.png" alt="Royal Batteries EXIDE CARE" width="120" height="40" loading="lazy" style="filter: brightness(0) invert(1);" />
+        </a>
+        <p>
+          Gajwel's trusted Exide CARE authorized battery dealer since {site.founded}.
+          Serving Siddipet, Medak, and Sangareddy districts with genuine batteries,
+          professional fitting, and 50+ km doorstep delivery.
+        </p>
+        <div style="display:flex;gap:10px;margin-top:4px;">
+          <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" aria-label="WhatsApp Royal Batteries">💬 WhatsApp</a>
+          <a href={`tel:${site.phone}`} class="btn btn-primary btn-sm" aria-label="Call Royal Batteries">📞 Call</a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="/car-batteries">Car Batteries</a>
+        <a href="/bike-batteries">Bike Batteries</a>
+        <a href="/inverter-batteries">Inverter Batteries</a>
+        <a href="/battery-delivery-service">Doorstep Delivery</a>
+        <a href="/about-authorized-exide-dealer">About Us</a>
+      </div>
+
+      <!-- Service Areas -->
+      <div class="footer-col">
+        <h4>We Serve</h4>
+        {priorityLocs.map(loc => (
+          <a href={`/${loc.slug}`}>{loc.name}</a>
+        ))}
+        <a href="/battery-delivery-service" style="color: var(--red, #EE392B); font-weight:600;">+ 50 km radius →</a>
+      </div>
+
+      <!-- Contact / NAP -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <!-- NAP: Name-Address-Phone (critical for local SEO) -->
+        <address style="font-style:normal;" itemscope itemtype="https://schema.org/LocalBusiness">
+          <meta itemprop="name" content="Royal Batteries" />
+          <span itemprop="streetAddress">{site.address.street}, {site.address.city}, {site.address.state} — {site.address.pincode}</span>
+        </address>
+        <a href={`tel:${site.phone}`} itemprop="telephone">{site.phoneDisplay}</a>
+        <span>{site.hours}</span>
+        <a href="/blog" style="margin-top:8px;">Battery Blog</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {new Date().getFullYear()} Royal Batteries, Gajwel — Exide CARE Authorized Dealer</span>
+      <span>Serving Siddipet · Medak · Sangareddy districts</span>
+    </div>
+  </div>
+</footer>

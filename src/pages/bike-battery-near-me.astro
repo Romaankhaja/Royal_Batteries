@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+import locations from '../data/locations.json';
+import FAQSection from '../components/FAQSection.astro';
+import LocationGrid from '../components/LocationGrid.astro';
+
+const allAreasPills = locations.slice(0, 15).map(l => ({ name: l.name, slug: l.slug }));
+
+const faqs = [
+  { q: 'Can you deliver a bike battery to my home?', a: 'Yes! We deliver motorcycle and scooter batteries within 20-30 km of Gajwel. Free installation is included.' },
+  { q: 'How long does a bike battery last?', a: 'Typically 2–3 years in Telangana climate. We offer VRLA maintenance-free batteries that last longer than traditional lead-acid ones.' },
+  { q: 'Which brands do you stock for bikes?', a: 'We stock Exide Xplore, Amaron Pro Bike Rider, and Powerzone for all major bike brands including Hero, Honda, Bajaj, and Royal Enfield.' }
+];
+---
+<BaseLayout
+  title="Bike Battery Near Me | Two Wheeler Battery Dealer Gajwel"
+  description="Bike battery dead? Get same-day motorcycle & scooter battery replacement near you. Royal Batteries Gajwel — Exide & Amaron bike batteries with free installation. Call 9397617823."
+  canonical="/bike-battery-near-me"
+  breadcrumbs={[{ name: 'Bike Battery Near Me', url: '/bike-battery-near-me' }]}
+>
+  <div class="hero-inner-page">
+    <div class="container">
+      <h1 class="page-h1">Bike Battery Near Me — Fast Motorcycle Battery Replacement</h1>
+      <p class="page-sub">Serving Gajwel, Siddipet, Medak, and 50+ km radius. Free doorstep delivery for Hero, Honda, Bajaj, TVS, and Royal Enfield.</p>
+      <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+        <a href={`tel:${site.phone}`} class="btn btn-primary">📞 Call {site.phoneDisplay}</a>
+        <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp Now</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-section" style="max-width:840px;">
+        <h2>The Nearest Quality Bike Battery Shop</h2>
+        <p>Searching for "bike battery near me"? Royal Batteries in Gajwel is the primary distributor for two-wheeler batteries in the Siddipet-Medak belt. Whether you own a commuter bike like Hero Splendor or a premium motorcycle like Royal Enfield, we have the exact battery model in stock.</p>
+        
+        <h3>Two-Wheeler Battery Services</h3>
+        <ul>
+          <li><strong>Zero Maintenance VRLA Batteries:</strong> Sealed batteries that require no water top-ups.</li>
+          <li><strong>High Cranking Power:</strong> Ensure your bike starts in one go even in cold winters or hot Telangana summers.</li>
+          <li><strong>On-Site Fitting:</strong> We come to your home, office, or roadside.</li>
+          <li><strong>Warranty Support:</strong> Full manufacturer warranty processed locally at our Gajwel shop.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LocationGrid areas={allAreasPills} title="Battery Delivery Areas" />
+  <FAQSection faqs={faqs} title="Two Wheeler Battery FAQs" />
+</BaseLayout>

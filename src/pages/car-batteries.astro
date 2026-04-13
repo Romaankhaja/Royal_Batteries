@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ReviewsSection from '../components/ReviewsSection.astro';
+import site from '../data/site.json';
+import locations from '../data/locations.json';
+
+const allLocationCards = locations.map(l => ({ name: l.name, slug: l.slug }));
+
+const faqs = [
+  { q: 'Which car battery brands do you stock in Gajwel?', a: 'We stock Exide (Mileage, Matrix Pro, Exceed), Amaron (BXLife, Hi-Life, FreshPack), and Powerzone for all car models including Maruti Alto, Swift, Hyundai i10/i20, Honda City, Tata Nexon, Mahindra Scorpio, and SUVs.' },
+  { q: 'How much does a car battery cost at Royal Batteries?', a: 'Car battery prices start from ₹2,800 for small hatchbacks (Maruti Alto, Hyundai Eon) up to ₹8,500 for large SUVs (Fortuner, Innova). Price includes free installation and old battery exchange. Call for exact model pricing.' },
+  { q: 'Do you provide warranty on car batteries?', a: 'Yes. All Exide batteries come with 18–42 months warranty (replacement + pro-rata). Amaron BXLife comes with up to 60 months total warranty. Warranty cards are given at the time of purchase.' },
+  { q: 'Can you fit a car battery at my location?', a: 'Yes! If you are within 50 km of Gajwel, we deliver and fit the battery at your home, office, or roadside. No need to tow your vehicle. Call 9397617823 for same-day service.' },
+  { q: 'How long does a car battery last in Gajwel\'s hot climate?', a: 'In Telangana\'s hot climate, car batteries typically last 2.5–4 years. Proper maintenance (cleaning terminals, maintaining electrolyte level in summer) can extend life significantly. We offer free battery health checks to assess your current battery.' },
+];
+
+const productSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Exide Mileage Car Battery — Royal Batteries Gajwel',
+    description: 'Exide Mileage series car batteries available at Royal Batteries, Gajwel. Free installation and old battery exchange included. Exide CARE authorized dealer.',
+    brand: { '@type': 'Brand', name: 'Exide' },
+    offers: { '@type': 'Offer', priceCurrency: 'INR', price: '3200', priceRange: '₹2800 - ₹5500', availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'Royal Batteries' } },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Amaron BXLife Car Battery — Royal Batteries Gajwel',
+    description: 'Amaron BXLife zero-maintenance car battery. 60-month warranty. Available with delivery across Siddipet, Medak districts from Royal Batteries Gajwel.',
+    brand: { '@type': 'Brand', name: 'Amaron' },
+    offers: { '@type': 'Offer', priceCurrency: 'INR', price: '3800', priceRange: '₹3200 - ₹8000', availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'Royal Batteries' } },
+  },
+];
+---
+<BaseLayout
+  title="Car Battery in Gajwel | Exide & Amaron | Royal Batteries EXIDE CARE"
+  description="Buy genuine Exide & Amaron car batteries in Gajwel. Free installation, old battery exchange, same-day fitting. Authorized EXIDE CARE dealer serving Siddipet & Medak district. Call 9397617823."
+  canonical="/car-batteries"
+  schema={productSchema}
+  breadcrumbs={[{ name: 'Car Batteries', url: '/car-batteries' }]}
+>
+
+  <div class="hero-inner-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">›</span><span aria-current="page">Car Batteries</span>
+      </nav>
+      <h1 class="page-h1">Car Battery in Gajwel — Exide & Amaron Authorized Dealer</h1>
+      <p class="page-sub">
+        Free diagnostics · Free installation · Old battery exchange · Same-day delivery across Siddipet, Medak & 50 km radius
+      </p>
+      <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+        <a href={`tel:${site.phone}`} class="btn btn-primary">📞 Call {site.phoneDisplay}</a>
+        <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp Order</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:60px;">
+        <div class="content-section">
+          <h2>Best Car Batteries in Gajwel, Siddipet & Medak</h2>
+          <p>Royal Batteries is the leading car battery shop in Gajwel, serving Siddipet district and Medak district with genuine Exide and Amaron car batteries since 2005. As an Exide CARE Authorized Dealer, every battery we sell carries full manufacturer warranty and genuine quality assurance.</p>
+
+          <h2>Car Battery Brands We Stock</h2>
+          <div style="display:grid; gap:16px; margin:20px 0;">
+            {[
+              { brand: 'Exide Mileage', desc: 'Best for small to mid-sized cars (Maruti Alto, Swift, i10). Price: ₹2,800–₹4,200. 24-month replacement warranty.', best: 'Hatchbacks & Sedans' },
+              { brand: 'Exide Matrix Pro', desc: 'Heavy-duty for SUVs and MUVs (Creta, Scorpio, Innova). Price: ₹5,000–₹7,500. Enhanced vibration resistance.', best: 'SUVs & MUVs' },
+              { brand: 'Amaron BXLife', desc: 'Zero-maintenance sealed battery with 60-month warranty. Perfect for Telangana\'s hot summers. Price: ₹3,200–₹8,000.', best: 'All car types' },
+              { brand: 'Amaron FreshPack', desc: 'Pre-charged and sealed for maximum shelf life. Ready to install. Price: ₹3,500–₹6,000.', best: 'Sedans & Hatchbacks' },
+              { brand: 'Powerzone', desc: 'Value-for-money batteries for budget-conscious customers. Good performance for city driving.', best: 'Budget option' },
+            ].map(p => (
+              <div class="card" style="padding:20px 24px;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                  <h3 style="font-size:1rem;">{p.brand}</h3>
+                  <span style="font-size:0.75rem; background:var(--red-soft); color:var(--red); padding:3px 10px; border-radius:50px; font-weight:600; white-space:nowrap;">{p.best}</span>
+                </div>
+                <p style="font-size:0.88rem;">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <h2>Popular Car Models We Service</h2>
+          <div class="village-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); margin:16px 0;">
+            {['Maruti Alto','Maruti Swift','Hyundai i10','Hyundai i20','Honda City','Honda Amaze','Tata Nexon','Mahindra Bolero','Toyota Innova','Toyota Fortuner','Renault Kwid','Nissan Micra','Kia Seltos','Hyundai Creta','Scorpio-N','Tata Punch'].map(car => (
+              <span class="village-pill">{car}</span>
+            ))}
+          </div>
+
+          <h2>Our Car Battery Service Process</h2>
+          <ol style="margin:16px 0 16px 24px; display:flex; flex-direction:column; gap:10px;">
+            <li style="font-size:0.92rem;"><strong>Free diagnosis:</strong> We test your current battery and confirm if replacement is needed.</li>
+            <li style="font-size:0.92rem;"><strong>Right battery selection:</strong> We find the correct specification (AH, CCA) for your vehicle model.</li>
+            <li style="font-size:0.92rem;"><strong>Transparent pricing:</strong> You know the final price before we proceed — no hidden costs.</li>
+            <li style="font-size:0.92rem;"><strong>Fast fitting:</strong> Car battery replacement takes 15–30 minutes at our Gajwel showroom.</li>
+            <li style="font-size:0.92rem;"><strong>Warranty documentation:</strong> Warranty card issued with purchase date and battery number.</li>
+          </ol>
+        </div>
+
+        <div>
+          <div class="card" style="padding:32px; position:sticky; top:80px;">
+            <h3 style="margin-bottom:16px;">Get a Car Battery Quote</h3>
+            <p style="font-size:0.88rem; color:var(--muted); margin-bottom:24px;">Tell us your vehicle model and we'll give you the exact price for the right battery.</p>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <a href={`tel:${site.phone}`} class="btn btn-primary" style="justify-content:center;">📞 {site.phoneDisplay}</a>
+              <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp" style="justify-content:center;">💬 WhatsApp Us</a>
+            </div>
+            <div style="margin-top:20px; font-size:0.82rem; color:var(--muted); display:flex; flex-direction:column; gap:6px;">
+              <span>✅ Free installation included</span>
+              <span>✅ Old battery exchange</span>
+              <span>✅ Warranty on all batteries</span>
+              <span>✅ Open {site.hours}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} title="Car Battery FAQs — Royal Batteries Gajwel" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h2>Need a Car Battery Today?</h2>
+          <p>Walk in or call us — same-day fitting at our Gajwel showroom or doorstep delivery across Siddipet &amp; Medak.</p>
+        </div>
+        <div class="cta-actions">
+          <a href={`tel:${site.phone}`} class="btn btn-outline-white btn-lg">📞 {site.phoneDisplay}</a>
+          <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

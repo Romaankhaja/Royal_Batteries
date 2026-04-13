@@ -1,0 +1,29 @@
+---
+interface Area {
+  name: string;
+  slug: string;
+}
+interface Props {
+  areas: Area[];
+  title?: string;
+  dark?: boolean;
+}
+const { areas, title = 'Areas We Serve', dark = false } = Astro.props;
+---
+<section class={`section ${dark ? 'section-dark' : 'section-light-2'}`} aria-labelledby="locations-heading">
+  <div class="container">
+    <h2 id="locations-heading" class="section-title" style={dark ? 'color:#fff;margin-bottom:28px;' : 'margin-bottom:28px;'}>
+      {title}
+    </h2>
+    <nav aria-label="Service area locations">
+      <div class="location-grid">
+        {areas.map(area => (
+          <a href={`/${area.slug}`} class="location-card">
+            <span>🔋 {area.name}</span>
+            <span class="arrow">→</span>
+          </a>
+        ))}
+      </div>
+    </nav>
+  </div>
+</section>

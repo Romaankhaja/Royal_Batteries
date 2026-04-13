@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
+import site from '../data/site.json';
+
+const faqs = [
+  { q: 'What bike battery brands do you stock in Gajwel?', a: 'We stock Exide Xplore VRLA, Exide Bikerz, Amaron Pro Bike Rider, and Powerzone batteries for all motorcycles and scooters — Hero, Honda, Bajaj, TVS, Royal Enfield, Yamaha, and Suzuki.' },
+  { q: 'How much does a bike battery cost in Gajwel?', a: 'Bike battery prices at Royal Batteries range from ₹700 for small scooters to ₹2,200 for premium motorcycles. Price includes free installation at our Gajwel showroom or at your location within 30 km.' },
+  { q: 'Do you deliver bike batteries to villages?', a: 'Yes! We deliver bike batteries to Gajwel, Pragnapur, Markook, Kothaguda, Raikal, and all surrounding villages. Same-day delivery. No minimum order. Call 9397617823.' },
+  { q: 'How long does a bike battery last?', a: 'Two-wheeler batteries last 18–36 months on average. VRLA (sealed) batteries are maintenance-free and generally last longer than conventional batteries in Telangana\'s summer heat.' },
+  { q: 'Can you replace the battery on my Royal Enfield or KTM?', a: 'Yes! We stock specialty batteries for premium motorcycles including Royal Enfield Bullet/Thunderbird, KTM Duke/RC, and Kawasaki Ninja. Call us with your exact model for availability.' },
+];
+---
+<BaseLayout
+  title="Bike Battery in Gajwel | Two-Wheeler Battery Shop | Royal Batteries"
+  description="Exide & Amaron bike batteries in Gajwel. Free installation for Hero, Honda, Bajaj, TVS, Royal Enfield. Delivery to Siddipet, Medak & nearby villages. Call 9397617823."
+  canonical="/bike-batteries"
+  breadcrumbs={[{ name: 'Bike Batteries', url: '/bike-batteries' }]}
+>
+  <div class="hero-inner-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">›</span><span aria-current="page">Bike Batteries</span>
+      </nav>
+      <h1 class="page-h1">Bike Battery in Gajwel | Two-Wheeler Battery Shop</h1>
+      <p class="page-sub">Exide &amp; Amaron batteries for motorcycles and scooters. Free fitting at showroom or home delivery across 50 km radius.</p>
+      <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+        <a href={`tel:${site.phone}`} class="btn btn-primary">📞 Call {site.phoneDisplay}</a>
+        <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-section" style="max-width:840px;">
+        <h2>Best Bike Batteries in Gajwel, Siddipet &amp; Medak</h2>
+        <p>Royal Batteries stocks and delivers two-wheeler batteries for all motorcycle and scooter models commonly used in Gajwel, Siddipet, Medak, and Sangareddy districts. Whether your Hero Splendor won't start or your Honda Activa battery is dead, we have the right replacement in stock and can fit it within the hour.</p>
+
+        <h2>Bike Battery Types We Stock</h2>
+        <div style="display:grid; gap:14px; margin:20px 0;">
+          {[
+            { type: 'VRLA (Sealed / Maintenance-Free)', desc: 'No water top-up required. Best for all modern bikes and scooters. Brands: Exide Xplore VRLA, Amaron Pro Bike Rider. Price: ₹900–₹2,000.' },
+            { type: 'Conventional (Wet Cell)', desc: 'Traditional battery requiring periodic water maintenance. Suitable for older motorcycles. More affordable. Price: ₹700–₹1,500.' },
+            { type: 'Gel Batteries', desc: 'Spill-proof and vibration-resistant. Ideal for off-road bikes and premium motorcycles.' },
+          ].map(({ type, desc }) => (
+            <div class="card" style="padding:20px 24px;">
+              <h3 style="font-size:0.95rem; margin-bottom:6px;">{type}</h3>
+              <p style="font-size:0.88rem;">{desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <h2>Bike Models We Cover</h2>
+        <div class="village-grid" style="margin:16px 0;">
+          {['Hero Splendor','Hero HF Deluxe','Hero Glamour','Hero Passion','Honda Activa','Honda Shine','Honda Unicorn','Bajaj Pulsar','Bajaj Discover','TVS Apache','TVS Star City','Yamaha FZ','Royal Enfield Bullet','Royal Enfield Classic','KTM Duke 200','Suzuki Access'].map(bike => (
+            <span class="village-pill">{bike}</span>
+          ))}
+        </div>
+
+        <h2>Bike Battery Delivery Service</h2>
+        <p>Stuck on the road with a dead bike? Don't push your vehicle all the way to a shop. <strong>Call Royal Batteries at {site.phoneDisplay}</strong> — we'll bring the right battery to you in Gajwel within 30 minutes, or to surrounding villages within 1 hour.</p>
+        <p>We carry the most common bike battery sizes in our delivery vehicle at all times. Installation takes just 10–15 minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} title="Bike Battery FAQs — Gajwel" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-banner">
+        <div><h2>Bike Battery Dead? Call Us Now</h2><p>We deliver to Gajwel, Siddipet, Medak, and 50 km radius. Same-day fitting guaranteed.</p></div>
+        <div class="cta-actions">
+          <a href={`tel:${site.phone}`} class="btn btn-outline-white btn-lg">📞 {site.phoneDisplay}</a>
+          <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import site from '../../data/site.json';
+import blog from '../../data/blog.json';
+---
+<BaseLayout
+  title="Battery Blog | Expert Tips & Guides | Royal Batteries Gajwel"
+  description="Battery tips, maintenance guides, and expert advice from Royal Batteries Gajwel. Summer maintenance, inverter selection, Exide vs Amaron — and more for Telangana drivers."
+  canonical="/blog"
+  breadcrumbs={[{ name: 'Blog', url: '/blog' }]}
+>
+  <div class="hero-inner-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">›</span><span aria-current="page">Blog</span>
+      </nav>
+      <h1 class="page-h1">Battery Tips &amp; Guides</h1>
+      <p class="page-sub">Expert battery knowledge from 20+ years in the field — written for car and bike owners across Gajwel, Siddipet, and Medak, Telangana.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+        {blog.map(post => (
+          <article class="blog-card" itemscope itemtype="https://schema.org/Article">
+            <div class="blog-card-body">
+              <div class="blog-cat">{post.category}</div>
+              <h2 class="blog-title" style="font-size:1rem;">
+                <a href={`/blog/${post.slug}`} itemprop="name">{post.title.replace(' | Royal Batteries', '')}</a>
+              </h2>
+              <p class="blog-desc" itemprop="description">{post.description}</p>
+              <div class="blog-meta">
+                <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                  <meta itemprop="name" content={site.owner} />By {site.owner}
+                </span>
+                <span>·</span>
+                <time itemprop="datePublished" datetime={post.date}>
+                  {new Date(post.date).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })}
+                </time>
+                <span>·</span>
+                <span>{post.readTime}</span>
+              </div>
+              <a href={`/blog/${post.slug}`} class="blog-read-link" style="margin-top:16px; display:inline-flex;">Read Article →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
